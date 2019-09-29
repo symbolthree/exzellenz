@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>symbolthree.oracle.excel</groupId>
+  <artifactId>exzellenz</artifactId>
+  <version>2.0</version>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <poi.version>3.17</poi.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>${poi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>${poi.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>commons-i18n</groupId>
+        <artifactId>commons-i18n</artifactId>
+        <version>0.5</version>
+    </dependency>
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>oracle.jdbc</groupId>
+      <artifactId>oracle.jdbc</artifactId>
+      <version>18.3.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/ojdbc8_18.3.0.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>oracle.apps.fnd</groupId>
+      <artifactId>fndext</artifactId>
+      <version>120.9</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/fndext.jar</systemPath>
+    </dependency>    
+  </dependencies>
+  <build>
+    <resources>
+      <resource>
+        <directory>src\main\java\symbolthree\oracle\excel</directory>
+        <includes>
+          <include>EXZ_STRING.xml</include>
+          <include>exzellenz_icon.gif</include>
+        </includes>
+        <targetPath>/symbolthree/oracle/excel</targetPath>
+      </resource>
+      <resource>
+        <directory>src\main\java</directory>
+        <includes>
+          <include>build.properties</include>
+        </includes>
+        <targetPath></targetPath>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <manifestEntries>
+                    <Name>symbolthree/oracle/excel</Name>
+								    <Specification-Title>≡ EXZELLENZ ≡</Specification-Title>
+ 								    <Specification-Version>2.0-build73</Specification-Version>
+								    <Specification-Vendor>symbolthree.com</Specification-Vendor>
+								    <build-time>20190929 0039</build-time>
+								  </manifestEntries>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

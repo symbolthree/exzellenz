@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZ_STRING.xml 15    2/15/17 6:14a Christopher Ho $ -->
+<messages>
+ <message id="MSG">
+  <locale language="en">
+   <entry key="INSTRUCTION">Please drag and drop the EXZELLENZ Excel file to here. \n (Right click to see the menu)</entry>
+   <entry key="PROCESSING">Processing {0}...</entry>
+   <entry key="DB_CONNECTING">Connecting database...</entry>
+   <entry key="DB_CONNECT_SUCCESS">DB Connection successfully created.</entry>
+   <entry key="PREPARE_WRITE_FILE">Prepare to write output file...</entry>
+   <entry key="FILE_SAVED">File {0} is updated successfully.</entry>
+   <entry key="FILE_CREATED">New file {0} is created successfully.</entry>
+   <entry key="PROCESS_DONE">Process finished.</entry>
+   <entry key="DOWNLOAD_ROW_DATA">No of row created: {0}</entry>
+   <entry key="INSERT_ROW_DATA">No of row inserted: {0}</entry>
+   <entry key="FORMAT_SHEET">Formatting worksheet...</entry>
+   <entry key="TEMPLATE_SHEET_CREATED">A new worksheet {0} is created.</entry>
+   <entry key="COLUMN_NOTUSED">Column {0} is not used.</entry>
+   <entry key="ROW_PROCESSED">Rows processed successfully: {0}</entry>
+   <entry key="ROW_FAILED">Rows fail to process: {0}</entry>
+   <entry key="ROW_SKIPPED">Row skipped : {0}</entry>
+   <entry key="CONFIRM_CONTINUE_GUI">Do you want to continue ?</entry>
+   <entry key="CONFIRM_CONTINUE_CONSOLE">Do you want to continue (Y / N )?</entry>
+   <entry key="CONFIRM_CANCELLED">Operation cancelled.</entry>
+  </locale>
+  <locale language="zh" country="TW">
+   <entry key="INSTRUCTION">請把EXZELLENZ Excel檔案拖曳到此。\n（按右鍵可看選項）</entry>
+   <entry key="PROCESSING">讀取及處理 {0}...</entry>
+   <entry key="DB_CONNECTING">連接資料庫...</entry>
+   <entry key="DB_CONNECT_SUCCESS">成功連接資料庫</entry>
+   <entry key="PREPARE_WRITE_FILE">準備產生檔案 ...</entry>
+   <entry key="FILE_SAVED">檔案 {0} 已更新</entry>
+   <entry key="FILE_CREATED">新檔案 {0} 已產生</entry>
+   <entry key="PROCESS_DONE">處理完成</entry>
+   <entry key="DOWNLOAD_ROW_DATA">下載了 {0} 筆資料</entry>
+   <entry key="FORMAT_SHEET">調整工作表格式...</entry>
+   <entry key="TEMPLATE_SHEET_CREATED">建立新工作表 {0}</entry>
+   <entry key="COLUMN_NOTUSED">不用欄位 {0}</entry>
+   <entry key="ROW_PROCESSED">成功處理 {0} 筆資料</entry>
+   <entry key="ROW_FAILED">不能處理 {0} 筆資料</entry>
+   <entry key="ROW_SKIPPED">跳過 {0} 筆資料</entry>
+   <entry key="CONFIRM_CONTINUE_GUI">繼續操作嗎 ?</entry>
+   <entry key="CONFIRM_CONTINUE_CONSOLE">繼續操作嗎 ? (Y / N )?</entry>
+   <entry key="CONFIRM_CANCELLED">操作取消</entry>   
+  </locale>
+ </message>
+ <message id="MENU">
+  <locale language="en">
+   <entry key="OPEN">Open file</entry>
+   <entry key="CLEAR">Clear window</entry>
+   <entry key="NEWFILE">Create new file</entry>
+   <entry key="LOGGING">Logging</entry>
+   <entry key="LOG_LEVEL">Log Level</entry>
+   <entry key="LOG_WARN">Warn</entry>
+   <entry key="LOG_INFO">Info</entry>
+   <entry key="LOG_DEBUG">Debug</entry>
+   <entry key="LOG_INTERVAL">Log Interval</entry>
+   <entry key="HELP">Help</entry>
+   <entry key="HELP_LINK">doc/EXZELLENZ.chm</entry>    
+   <entry key="ABOUT">About</entry>   
+   <entry key="ABOUT_LINK">http://symbolthree.com/home/products/exzellenz/</entry>   
+   <entry key="CLOSE">Close</entry>
+   <entry key="EXIT">Exit</entry>
+  </locale>
+  <locale language="zh" country="TW">
+   <entry key="OPEN">開啟檔案</entry>
+   <entry key="CLEAR">清空視窗</entry>
+   <entry key="NEWFILE">存新檔案 </entry>
+   <entry key="LOGGING">日誌設定</entry>   
+   <entry key="LOG_LEVEL">級別</entry>
+   <entry key="LOG_WARN">警告</entry>
+   <entry key="LOG_INFO">資訊</entry>
+   <entry key="LOG_DEBUG">除弊</entry>
+   <entry key="LOG_INTERVAL">區間</entry>
+   <entry key="HELP">幫助</entry>
+   <entry key="HELP_LINK">doc/EXZELLENZ.chm</entry>
+   <entry key="ABOUT_LINK">http://symbolthree.com/home/products/exzellenz/</entry>
+   <entry key="ABOUT">關於</entry>
+   <entry key="CLOSE">關閉</entry>   
+   <entry key="EXIT">離開</entry>
+  </locale>
+ </message>
+ <message id="ERR">
+  <locale language="en">
+   <entry key="MULTI_FILE">Please drop one file only.</entry>
+   <entry key="INVALID_EXT">{0} is not a valid Excel file or this extension is not supported.</entry>
+   <entry key="VERSION">Please use Excel Template File for version {0}</entry>
+   <entry key="DATABASE_PARAMS">Please make sure all required database parameters are valid.</entry>
+   <entry key="PARAMETER">Please define {0} parameter.</entry>
+   <entry key="SHEET_NOTFOUND">Worksheet {0} is not present.</entry>
+   <entry key="INVALID_DBC">Invalid DBC file {0}.</entry>
+   <entry key="RUNAS_CREDENTIALS">Invalid RunAs Username / password / Responsibility combination.</entry>
+   <entry key="COLUMN_NOTFOUND">Cannot find column {0} in worksheet {1}.</entry>
+   <entry key="TEMPLATE_SHEET_EXIST">Worksheet {0} exists. Please change the name or delete this sheet.</entry>
+   <entry key="INVALID_MAPPING">[{0},{1}] is not a valid column mapping.</entry>
+   <entry key="NO_ROWID">ROWID column does not exist in worksheet {0}.</entry>
+   <entry key="ROW_DATA">Error for data in row {0}</entry>
+   <entry key="TABLE_NAME">Table {0} does not exist or is not a table or view.</entry>
+   <entry key="OPERATION_MODE">{0} operation is not allowed on database view {1}.</entry>
+   <entry key="CUSTOM_QUERY_SHEET">Data worksheet name must be specified if CUSTOM_QUERY is used</entry>
+   <entry key="CUSTOM_QUERY_CONFLICT">Cannot use CUSTOM_QUERY and TABLE_NAME at the same time</entry>   
+  </locale>
+  <locale language="zh" country="TW">
+   <entry key="MULTI_FILE">不可多於一個檔案</entry>
+   <entry key="INVALID_EXT">{0} 不是一個可用的檔案</entry>
+   <entry key="VERSION">請用 version {0} 的Excel模板檔案</entry>
+   <entry key="DATABASE_PARAMS">請檢查所有資料庫連結參數是否正確</entry>
+   <entry key="PARAMETER">請設定參數 {0}</entry>
+   <entry key="SHEET_NOTFOUND">工作表 {0} 不存在</entry>
+   <entry key="INVALID_DBC">不正確 DBC 檔案 {0}</entry>
+   <entry key="RUNAS_CREDENTIALS">EBS 執行用戶、密碼或職責不正確</entry>
+   <entry key="COLUMN_NOTFOUND"> 工作表 {1} 中沒有欄位 {0}</entry>
+   <entry key="TEMPLATE_SHEET_EXIST">工作表 {0} 已存在。請刪除此工作表或更改其名稱</entry>
+   <entry key="INVALID_MAPPING">[{0},{1}] 的欄位名稱對應無效</entry>
+   <entry key="NO_ROWID">工作表 {0} 沒有欄位 ROWID</entry>
+   <entry key="ROW_DATA">行{0}的資料有錯誤</entry>
+   <entry key="TABLE_NAME">{0}不存在或不是一個table或view</entry>
+   <entry key="OPERATION_MODE">View {1} 不可作出  {0} 的處理</entry>
+   <entry key="CUSTOM_QUERY_SHEET">使用CUSTOM_QUERY時必須 表明DATA_WORKSHEET</entry>
+   <entry key="CUSTOM_QUERY_CONFLICT">CUSTOM_QUERY及TABLE_NAME不能同時使用</entry>   
+  </locale>
+ </message>
+</messages>
+

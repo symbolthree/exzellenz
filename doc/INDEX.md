@@ -19,6 +19,8 @@
 
 [Operation Moode](OPERATION-MODES.md)
 
+[FAQ](FAQ.md)
+
 ### Tutorial
 
 [Part 1 - Template Mode](TUTORIAL/PART-1.md)
@@ -31,6 +33,6 @@
 
 [Part 5 - Delete Mode](TUTORIAL/PART-5.md)
 
-[Part 7  - Using Views and Custom Column Names](TUTORIAL/PART-6.md)
+[Part 6  - Using Views and Custom Column Names](TUTORIAL/PART-6.md)
 
-[Part 8 - Custom Query](TUTORIAL/PART-7.md)
+[Part 7 - Custom Query](TUTORIAL/PART-7.md)

@@ -1,4 +1,6 @@
-# Frequently Asked Questions
+<span style="font-size:36px;">FAQ</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="INDEX.md">Index</a></span>
+
+---
 
 ### What Data Type it can handle ?
 

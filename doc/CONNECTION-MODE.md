@@ -1,4 +1,7 @@
-# Connection Mode
+<span style="font-size:36px;">Connection Mode</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="INDEX.md">Index</a></span>
+
+---
+ 
 - For DIRECT connection mode, you need to specify the JDBC URL, USERNAME, and PASSWORD.
 
 - The PASSWORD value is hidden in the Cell, but user can see it if the cell is selected. So if this template file is distributed to end user, one should password-lock this cell from selecting.

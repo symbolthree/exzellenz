@@ -56,7 +56,7 @@
    <entry key="LOG_DEBUG">Debug</entry>
    <entry key="LOG_INTERVAL">Log Interval</entry>
    <entry key="HELP">Help</entry>
-   <entry key="HELP_LINK">doc/EXZELLENZ.chm</entry>    
+   <entry key="HELP_LINK">https://github.com/symbolthree/exzellenz/blob/master/doc/INDEX.md</entry>    
    <entry key="ABOUT">About</entry>   
    <entry key="ABOUT_LINK">http://symbolthree.com/home/products/exzellenz/</entry>   
    <entry key="CLOSE">Close</entry>
@@ -73,7 +73,7 @@
    <entry key="LOG_DEBUG">除弊</entry>
    <entry key="LOG_INTERVAL">區間</entry>
    <entry key="HELP">幫助</entry>
-   <entry key="HELP_LINK">doc/EXZELLENZ.chm</entry>
+   <entry key="HELP_LINK">https://github.com/symbolthree/exzellenz/blob/master/doc/INDEX.md</entry>
    <entry key="ABOUT_LINK">http://symbolthree.com/home/products/exzellenz/</entry>
    <entry key="ABOUT">關於</entry>
    <entry key="CLOSE">關閉</entry>   

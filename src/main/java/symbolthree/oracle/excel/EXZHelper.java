@@ -496,7 +496,7 @@ public class EXZHelper implements Constants {
 	}    
     
 	public static String getAuthorLine() {
-		return "Copyright(c) 2010-17 Christopher.Ho@symbolthree.com";
+		return "Copyright(c) 2010-19 Christopher.Ho@symbolthree.com";
 	}
 	
     public static String getExtension(File f) {

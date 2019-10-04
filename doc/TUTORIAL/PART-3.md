@@ -1,4 +1,6 @@
-# Tutorial - Part 3
+<span style="font-size:36px;">Tutorial - Part 3</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="../INDEX.md">Index</a></span>
+
+---
 
 ## Insert Mode
 
@@ -10,7 +12,7 @@ alter trigger UPDATE_JOB_HISTORY disable;
 truncate table EMPLOYEES;
 ~~~
 
-Open hr(2).xlsx and change the OPERATION_MODE to INSERT.
+Open `hr(2).xlsx` and change the `OPERATION_MODE` to **INSERT**.
 
 <img src="../pic/image13.png"/>
 
@@ -28,11 +30,11 @@ Insert another line of data (line 109) in the EMPLOYEES worksheet that:
 
 <img src="../pic/image14.png"/>
 
-Start EXZELLENZ and drag-and-drop the file hr(2).xlsx to program window.  The program will read the Excel file and insert the data back into the database table EMPLOYEES.
+Start EXZELLENZ and drag-and-drop the file `hr(2).xlsx` to program window.  The program will read the Excel file and insert the data back into the database table EMPLOYEES.
 
 <img src="../pic/image15.png"/>
 
-A new file hr(3).xlsx is created.  Open this file and you should see that in the worksheet EMPLOYEES, the first column RESULT has the word "PROCESSED" populated for each row of data.  Connect to database under schema HR and select the new row of data you just added. 
+A new file `hr(3).xlsx` is created.  Open this file and you should see that in the worksheet EMPLOYEES, the first column RESULT has the word **PROCESSED** populated for each row of data.  Connect to database under schema HR and select the new row of data you just added. 
 
 <img src="../pic/image16.png"/>
 

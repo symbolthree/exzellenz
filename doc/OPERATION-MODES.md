@@ -1,4 +1,7 @@
-# Operation Modes
+<span style="font-size:36px;">Operation Modes</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="INDEX.md">Index</a></span>
+
+---
+
 - You need to create a template worksheet in order to carry on the other operations (DOWNLOAD, INSERT, UPDATE, or DELETE).  Enter the database info and table name, select the OPERATION_MODE to TEMPLATE.  Run the file in EXZELLENZ, and a new worksheet will be created. The template worksheet name is default to the table / view name.  You could change this name but you must specify the new name in the DATA_WORKSHEET parameter.
 
 - In the template worksheet, you can delete any columns (except RESULT column, which is available for table, but not for view) you don't need.

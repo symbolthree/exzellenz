@@ -68,6 +68,14 @@ import javax.swing.table.TableModel;
 
 import oracle.jdbc.OracleDriver;
 
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
+import org.jdom2.filter.Filters;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.xpath.XPathExpression;
+import org.jdom2.xpath.XPathFactory;
+
 public class AboutDialog extends JDialog implements ActionListener, Constants {
 
 	private static final long serialVersionUID = 8564475892772711012L;
@@ -172,7 +180,8 @@ public class AboutDialog extends JDialog implements ActionListener, Constants {
 
         addVersion("Java Home", System.getProperty("java.home"));
         
-        readManifest();
+        //readManifest();
+        readPOM();
         
         File fndextJar = new File(System.getProperty("user.dir") + File.separator + "lib", "fndext.jar");
         ZipFile zipFile = new ZipFile(fndextJar);
@@ -190,6 +199,29 @@ public class AboutDialog extends JDialog implements ActionListener, Constants {
 		if (val==null) val="";
 		versions.setProperty(key, val);
 	}
+	
+	private void readPOM() throws Exception {
+		Namespace   ns = Namespace.getNamespace("ns", "http://maven.apache.org/POM/4.0.0");
+		InputStream is = this.getClass().getResourceAsStream("/META-INF/maven/symbolthree.oracle.excel/exzellenz/pom.xml");
+		
+		SAXBuilder jdomBuilder = new SAXBuilder();
+		Document jdomDoc = jdomBuilder.build(is);
+		
+		XPathFactory xpfac = XPathFactory.instance();
+		XPathExpression<Element> xp = xpfac.compile("//ns:poi.version", Filters.element(), null, ns);
+	    Element ele = xp.evaluateFirst(jdomDoc);
+	    addVersion("org.apache.poi", ele.getValue());
+	    
+	    xp = xpfac.compile("//ns:dependency", Filters.element(), null, ns);
+	    List<Element> eles = xp.evaluate(jdomDoc);
+	    for (Element e : eles) {
+	    	String groupId = e.getChild("groupId", ns).getText();	    	
+	    	String version = e.getChild("version", ns).getText();
+	    	if (! groupId.startsWith("oracle") && groupId.indexOf("poi") < 0) {
+	    		addVersion(groupId, version);
+	    	} 
+	    }	    
+    }
 	
 	private void readManifest() throws Exception {
 	    Enumeration<?> resEnum;

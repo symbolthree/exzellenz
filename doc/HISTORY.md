@@ -1,4 +1,11 @@
-# Version History
+<span style="font-size:36px;">Version History</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="INDEX.md">Index</a></span>
+
+---
+
+## Changes in v. 2.0
+ - Excel template version 2.0
+- Maven build to create uber jar
+- Transfer source code and document to Github
 
 ## Changes in v. 1.12
 
@@ -28,7 +35,7 @@
 
 - Excel template version 1.9 to 1.10
 
-- Add parameter CONFIRM_OPERATION.  If it set to Yes, user is asked to confirm to continue the action after Excel file is selected.
+- Add parameter `CONFIRM_OPERATION`.  If it set to Yes, user is asked to confirm to continue the action after Excel file is selected.
 
 - Add colors to text in GUI mode
 
@@ -43,7 +50,7 @@
 
 - Upgrade Apache POI version to 3.11
 
-- Add java options -Xms64m -Xmx1024m -XX:+UseParallelGC to improve memory usage
+- Add java options `-Xms64m -Xmx1024m -XX:+UseParallelGC` to improve memory usage
 
 - Use SXSSF API to save Excel file to reduce memory usage
 
@@ -59,9 +66,9 @@
 
 - Excel template version 1.7 to 1.8
 
-- Add parameter EXZ_LOG_INTERVAL: write a log statement per this no. of row processed
+- Add parameter `EXZ_LOG_INTERVAL`: write a log statement per this no. of row processed
 
-- EXZ_LOG_LEVEL and EXZ_LOG_INTERVAL can be changed in popup menu
+- `EXZ_LOG_LEVEL` and `EXZ_LOG_INTERVAL` can be changed in popup menu
 
 - Window width and height are saved when program exit
 
@@ -105,11 +112,11 @@ Excel. It is stored as empty Excel cell now.
 
 - Upgrade Apache POI version from 3.7 to 3.9.
 
-- Add CUSTOM_QUERY operational parameter which allow to download data using custom query.
+- Add `CUSTOM_QUERY` operational parameter which allow to download data using custom query.
 
 - ROWID is retrieved and stored in the Excel column when Upload Mode is used.
 
-- Add CONTINUE_ON_ERROR in Error Handling Mode.
+- Add `CONTINUE_ON_ERROR` in Error Handling Mode.
 
 - Exception code is saved in the Excel Result Column.
 
@@ -139,13 +146,13 @@ Excel. It is stored as empty Excel cell now.
 
 - Add EBS RunAs user mode
 
-- Add delete OPERATION_MODE
+- Add delete `OPERATION_MODE`
 
 - Add ability to create template and download data from database views
 
-- Add parameter SAVE_NEW_FILE so that a new file will be created after process
+- Add parameter `SAVE_NEW_FILE` so that a new file will be created after process
 
-- (GUI) Add popup menu to (1) select file instead of drag-n-drop; (2) set SAVE_NEW_FILE parameter
+- (GUI) Add popup menu to (1) select file instead of drag-n-drop; (2) set `SAVE_NEW_FILE` parameter
 
 > CHANGE
 
@@ -204,6 +211,6 @@ Excel. It is stored as empty Excel cell now.
 
 ## Known Limitation / Bugs
 
-- Template cannot be generated if the table/view has more than 255 columns for Excel 2003 or lower format (e.g. OE_ORDER_LINES_ALL table has 340 columns, MTL_SYSTEM_ITEMS_B has 337 columns)
+- Template cannot be generated if the table/view has more than 255 columns for Excel 2003 or lower format (e.g. In Oracle EBS `OE_ORDER_LINES_ALL` table has 340 columns, `MTL_SYSTEM_ITEMS_B` has 337 columns)
 
 - Cannot download more than 65536 rows of data for Excel 2003 or lower format

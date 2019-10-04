@@ -1,4 +1,6 @@
-# LICENSE
+<span style="font-size:36px;">LICENSE</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="INDEX.md">Index</a></span>
+
+---
 
 **Copyright (c) 2010-17 Christopher.Ho@symbolthree.com
 All rights reserved.**

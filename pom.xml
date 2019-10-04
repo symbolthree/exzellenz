@@ -32,6 +32,16 @@
         <artifactId>commons-io</artifactId>
         <version>2.6</version>
     </dependency>
+		<dependency>
+		    <groupId>org.jdom</groupId>
+		    <artifactId>jdom</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>jaxen</groupId>
+		    <artifactId>jaxen</artifactId>
+		    <version>1.2.0</version>
+		</dependency>    
     <dependency>
       <groupId>oracle.jdbc</groupId>
       <artifactId>oracle.jdbc</artifactId>
@@ -82,9 +92,9 @@
                   <manifestEntries>
                     <Name>symbolthree/oracle/excel</Name>
 								    <Specification-Title>≡ EXZELLENZ ≡</Specification-Title>
- 								    <Specification-Version>2.0-build73</Specification-Version>
+ 								    <Specification-Version>2.0-build81</Specification-Version>
 								    <Specification-Vendor>symbolthree.com</Specification-Vendor>
-								    <build-time>20190929 0039</build-time>
+								    <build-time>20191004 0039</build-time>
 								  </manifestEntries>
                 </transformer>
               </transformers>

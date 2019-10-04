@@ -1,10 +1,11 @@
-# Tutorial - Part 7
+<span style="font-size:36px;">Tutorial - Part 7</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="../INDEX.md">Index</a></span>
 
+---
 ## Using Custom Query 
 
-Make a copy of the hr.xlsx (in Part I) into emp_hire.xlsx. Open this file, enter the following SQL into CUSTOM QUERY value (just copy and paste the SQL into the Excel cell).  Enter "Year in Service" for DATA_WORKSHEET value.  Make sure the OPERATION_MODE is TEMPLATE.
+Make a copy of the `hr.xlsx` (in Part I) into `emp_hire.xlsx`. Open this file, enter the following SQL into CUSTOM QUERY value (just copy and paste the SQL into the Excel cell).  Enter `Year in Service` for `DATA_WORKSHEET` value.  Make sure the `OPERATION_MODE` is `TEMPLATE`.
 
-```
+```SQL
 select e.employee_id emp_id
      , e.last_name || ', ' || e.first_name full_name
      , j.job_title
@@ -23,6 +24,6 @@ select e.employee_id emp_id
 
 <img src="../pic/image35.png"/>
 
-Run emp_view.xlsx in EXZELLENZ and a new file emp_view(1).xlsx is created.  Open this file and change OPERATION_MODE to DOWNLOAD.  Save and close this file.  Run this file in EXZELLENZ again.  When it's done, open the file emp_view(2).xlsx and it should look like this:
+Run `emp_view.xlsx` in EXZELLENZ and a new file `emp_view(1).xlsx` is created.  Open this file and change `OPERATION_MODE` to `DOWNLOAD`.  Save and close this file.  Run this file in EXZELLENZ again.  When it's done, open the file `emp_view(2).xlsx` and it should look like this:
 
 <img src="../pic/image36.png"/>

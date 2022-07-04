@@ -3,12 +3,22 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>symbolthree.oracle.excel</groupId>
   <artifactId>exzellenz</artifactId>
-  <version>2.0</version>
-
+  <version>3.0-SNAPSHOT</version>
+  <name>EXZELLENZ</name>
+  <description>[!CDATA [
+  Java application to upload data from Excel to Oracle database / 
+  download data to Excel from Oracle.]]
+  </description>
   <properties>
+	<maven.build.timestamp.format>yyyy-MM-dd HH.mm.ss</maven.build.timestamp.format>
+	<build.timestamp>${maven.build.timestamp}</build.timestamp>   
+	<maven.test.failure.ignore>true</maven.test.failure.ignore>
+ 
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <poi.version>4.1.1</poi.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <poi.version>5.2.2</poi.version>
   </properties>
 
   <dependencies>
@@ -87,6 +97,16 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>

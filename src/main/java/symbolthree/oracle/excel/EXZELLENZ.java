@@ -36,8 +36,6 @@ import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 
-import oracle.jdbc.logging.annotations.Log;
-
 import java.io.*;
 import java.sql.SQLException;
 import java.util.*;
@@ -190,8 +188,13 @@ public class EXZELLENZ implements Runnable, Constants {
             String templateVer = EXZParams.instance().getValue(VERSION);
             int templateMajorVer = Integer.parseInt(templateVer.split("\\.")[0]);
             int templateMinorVer = Integer.parseInt(templateVer.split("\\.")[1]);
-            		
-            if (templateMajorVer < LOWEST_MAJOR_VERSION_ALLOWED || templateMinorVer < LOWEST_MINOR_VERSION_ALLOWED) {            
+
+            if (templateMajorVer < LOWEST_MAJOR_VERSION_ALLOWED) {
+                EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("ERR.VERSION", LOWEST_MAJOR_VERSION_ALLOWED + "." + LOWEST_MINOR_VERSION_ALLOWED));
+                throw new EXZException();
+            }
+            
+            if (templateMajorVer == LOWEST_MAJOR_VERSION_ALLOWED && templateMinorVer < LOWEST_MINOR_VERSION_ALLOWED) {            
                 EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("ERR.VERSION", LOWEST_MAJOR_VERSION_ALLOWED + "." + LOWEST_MINOR_VERSION_ALLOWED));
                 throw new EXZException();
             }

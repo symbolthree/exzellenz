@@ -112,9 +112,9 @@
                   <manifestEntries>
                     <Name>symbolthree/oracle/excel</Name>
 								    <Specification-Title>≡ EXZELLENZ ≡</Specification-Title>
- 								    <Specification-Version>2.0-build81</Specification-Version>
+ 								    <Specification-Version>3.0-SNAPSHOT</Specification-Version>
 								    <Specification-Vendor>symbolthree.com</Specification-Vendor>
-								    <build-time>20191004 0039</build-time>
+								    <build-time>${build.timestamp}</build-time>
 								  </manifestEntries>
                 </transformer>
               </transformers>

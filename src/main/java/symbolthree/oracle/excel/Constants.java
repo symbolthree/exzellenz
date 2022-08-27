@@ -64,7 +64,7 @@ public interface Constants {
     public static String       EXZ_LOG_OUTPUT            = "EXZ_LOG_OUTPUT";
     
     public static String       EXZ_LOG_INTERVAL          = "EXZ_LOG_INTERVAL";
-    public static String       EXZ_APPLICATION_DIR       = System.getProperty("user.home") + File.separator + "symbolthree" + File.separator + "exzellenz";
+    public static String       EXZ_APPLICATION_DIR       = System.getProperty("user.dir");
     public static String       IGONRE_NOT_NULL_COLUMN    = "IGONRE_NOT_NULL_COLUMN";
     
     public static int          LOG_DEBUG                 = 0;

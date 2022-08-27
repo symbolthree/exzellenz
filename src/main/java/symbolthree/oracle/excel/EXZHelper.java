@@ -64,16 +64,16 @@ public class EXZHelper implements Constants {
                     HSSFCell cell = row.getCell(colNo - 1);
 
                     if (cell != null) {
-                        if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                        if (cell.getCellType() == CellType.NUMERIC) {
                             rtnValue = Integer.toString((int) cell.getNumericCellValue());
                             
-                        } else if (cell.getCellTypeEnum() == CellType.STRING) {
+                        } else if (cell.getCellType() == CellType.STRING) {
                             HSSFRichTextString richText = new HSSFRichTextString();
 
                             richText = cell.getRichStringCellValue();
                             rtnValue = richText.getString().trim();
                         
-                        } else if (cell.getCellTypeEnum() == CellType.FORMULA) {
+                        } else if (cell.getCellType() == CellType.FORMULA) {
                         	rtnValue = readFormulaAsString(wb, cell);
                         }
                     }
@@ -85,16 +85,16 @@ public class EXZHelper implements Constants {
                     XSSFCell cell = row.getCell(colNo - 1);
 
                     if (cell != null) {
-                        if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                        if (cell.getCellType() == CellType.NUMERIC) {
                             rtnValue = Integer.toString((int) cell.getNumericCellValue());
                             
-                        } else if (cell.getCellTypeEnum() == CellType.STRING) {
+                        } else if (cell.getCellType() == CellType.STRING) {
                             XSSFRichTextString richText = new XSSFRichTextString();
 
                             richText = cell.getRichStringCellValue();
                             rtnValue = richText.getString().trim();
                         
-                        } else if (cell.getCellTypeEnum() == CellType.FORMULA) {
+                        } else if (cell.getCellType() == CellType.FORMULA) {
                         	rtnValue = readFormulaAsString(wb, cell);
                         }
                         
@@ -117,16 +117,16 @@ public class EXZHelper implements Constants {
             Cell cell = row.getCell(colNo - 1);
 
             if (cell != null) {
-                if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                if (cell.getCellType() == CellType.NUMERIC) {
                     rtnValue = cell.getNumericCellValue();
                     
-                } else if (cell.getCellTypeEnum() == CellType.FORMULA) {
+                } else if (cell.getCellType() == CellType.FORMULA) {
                     rtnValue = readFormulaAsDouble(wb, cell);
                     
-                } else if (cell.getCellTypeEnum() == CellType.BLANK) {
+                } else if (cell.getCellType() == CellType.BLANK) {
 
                     // do nothing.  It will return min. value which is indicated as blank
-                } else if (cell.getCellTypeEnum() == CellType.STRING) {
+                } else if (cell.getCellType() == CellType.STRING) {
                 	try {
                         rtnValue = Double.parseDouble(cell.getRichStringCellValue().getString());
                     } catch (NumberFormatException nfe) {
@@ -184,7 +184,10 @@ public class EXZHelper implements Constants {
     }
 
     public static void successCell(HSSFWorkbook workbook, HSSFSheet sheet, int rowNo, int colNo) {
-        setCellStyle(workbook, sheet, rowNo, colNo, HSSFColor.BRIGHT_GREEN.index, HSSFColor.BLACK.index, "Uploaded");
+        setCellStyle(workbook, sheet, rowNo, colNo, 
+        		 HSSFColor.HSSFColorPredefined.GREEN.getIndex(),
+        		 HSSFColor.HSSFColorPredefined.BLACK.getIndex(),
+        		 "Uploaded");    	
     }
 
     public static boolean isEmptyRow(HSSFSheet sheet, int rowNo, int colNo) {
@@ -199,23 +202,23 @@ public class EXZHelper implements Constants {
                 Cell cell = row.getCell(colNo - 1);
 
                 if (cell != null) {
-                    EXZHelper.log(LOG_DEBUG, "Cell type:" + cell.getCellTypeEnum());
+                    EXZHelper.log(LOG_DEBUG, "Cell type:" + cell.getCellType());
                     
-                    if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                    if (cell.getCellType() == CellType.NUMERIC) {
                         // best situation: cell is date formatted
-                        if (HSSFDateUtil.isCellDateFormatted(cell)) {
+                        if (DateUtil.isCellDateFormatted(cell)) {                    	
                             java.util.Date jDate = cell.getDateCellValue();
 
                             return new java.sql.Date(jDate.getTime());
                         }
                     
-                    } else if (cell.getCellTypeEnum() == CellType.FORMULA) {
+                    } else if (cell.getCellType() == CellType.FORMULA) {
                     	FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
                     	CellValue cv = evaluator.evaluate(cell);
-                    	java.util.Date jDate = HSSFDateUtil.getJavaDate(cv.getNumberValue());
+                    	java.util.Date jDate = DateUtil.getJavaDate(cv.getNumberValue());                    	
                     	return new java.sql.Date(jDate.getTime());
                         
-                    } else if (cell.getCellTypeEnum() == CellType.STRING) {
+                    } else if (cell.getCellType() == CellType.STRING) {
                         String strValue = cell.getRichStringCellValue().getString();
                         /* TODO SYSDATE casting */
                         
@@ -239,7 +242,7 @@ public class EXZHelper implements Constants {
                             throw new EXZException("Cell value is string but no date mask provided.");
                         }
                     
-                    } else if (cell.getCellTypeEnum() == CellType.BLANK) {
+                    } else if (cell.getCellType() == CellType.BLANK) {
                         return null;
                     
                     } else {
@@ -496,7 +499,7 @@ public class EXZHelper implements Constants {
 	}    
     
 	public static String getAuthorLine() {
-		return "Copyright(c) 2010-19 Christopher.Ho@symbolthree.com";
+		return "Copyright(c) 2010-22 Christopher.ho@symbolthree.com";
 	}
 	
     public static String getExtension(File f) {

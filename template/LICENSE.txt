@@ -1,0 +1,36 @@
+﻿=================
+License Agreement
+=================
+
+EXZELLENZ
+
+Copyright (c) 2022 Christopher.Ho@symbolthree.com
+
+All rights reserved.
+
+EXZELLENZ is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+=================================
+License for Oracle-related files
+=================================
+
+- fndext.jar, oracle jdbc driver jar files
+
+You/Your company must obtain a valid license from Oracle to use these files.
+The aforementioned files is pre-packaged in this software and is for your 
+convenience to use this program. These files should be deleted immediately 
+if you/your company does not have the right granted from Oracle to use 
+these files.  The writer of EXZELLENZ shall not bear any responsibility
+for the copyright violation of the aforementioned files.

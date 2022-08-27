@@ -28,15 +28,9 @@
  * $Revision: 25 $
 ******************************************************************************/
 
-
-
 package symbolthree.oracle.excel;
 
-import java.io.File;
-
 public interface Constants {
-  public static final String RCS_ID                    =
-    "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/Constants.java 25    2/17/17 9:58a Christopher Ho $";
   
     public static String       APPS_RUNAS_MODE           = "APPS_RUNAS_MODE";
     public static String       APPS_RUNAS_PASSWORD       = "APPS_RUNAS_PASSWORD";
@@ -64,8 +58,11 @@ public interface Constants {
     public static String       EXZ_LOG_OUTPUT            = "EXZ_LOG_OUTPUT";
     
     public static String       EXZ_LOG_INTERVAL          = "EXZ_LOG_INTERVAL";
+    //public static String       EXZ_APPLICATION_DIR       = System.getProperty("user.home") + File.separator + "symbolthree" + File.separator + "exzellenz";
     public static String       EXZ_APPLICATION_DIR       = System.getProperty("user.dir");
     public static String       IGONRE_NOT_NULL_COLUMN    = "IGONRE_NOT_NULL_COLUMN";
+    
+    public static String       EXZ_RESOURCE_BUNDLE       = "EXZ.properties";
     
     public static int          LOG_DEBUG                 = 0;
     public static int          LOG_INFO                  = 1;

@@ -52,12 +52,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 
-/**
- * Original Drag-n-drop class is created by Robert Harder, rob@iharder.net
- */
 public class EXZ implements Constants, ActionListener {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZ.java 21    2/11/17 10:27a Christopher Ho $";
     private JFrame          frame = new JFrame();
     //private final JTextArea text  = new JTextArea();
     private final JTextPane text      = new JTextPane();
@@ -66,17 +61,17 @@ public class EXZ implements Constants, ActionListener {
     private JPopupMenu      popupMenu = new JPopupMenu();
     private String          inputFileName;
     
-    private JMenuItem openMenu;
-    private JMenuItem clearMenu;
-    private JMenu     logMenu;
-    private JMenu     logLevelMenu;
-    private JMenu     logIntervalMenu;
-        private JRadioButton logDebugMenu;    
+    private JMenuItem    openMenu;
+    private JMenuItem    clearMenu;
+    private JMenu        logMenu;
+    private JMenu        logLevelMenu;
+    private JMenu        logIntervalMenu;
+    private JRadioButton logDebugMenu;    
     private JRadioButton logInfoMenu;
     private JRadioButton logWarnMenu;
-    private JMenuItem helpMenu;
-    private JMenuItem aboutMenu;
-    private JMenuItem exitMenu;
+    private JMenuItem    helpMenu;
+    private JMenuItem    aboutMenu;
+    private JMenuItem    exitMenu;
     //private JCheckBoxMenuItem newFileMenu;
     private JFileChooser fc = new JFileChooser();
     private ButtonGroup logLevelGroup    = new ButtonGroup();
@@ -185,8 +180,7 @@ public class EXZ implements Constants, ActionListener {
                     String fileExtension = EXZHelper.getExtension(files[0]);
 
                     if (!fileExtension.equalsIgnoreCase("XLS") &&
-                        !fileExtension.equalsIgnoreCase("XLSX") &&
-                        !fileExtension.equalsIgnoreCase("XLSB")) {
+                        !fileExtension.equalsIgnoreCase("XLSX")) {
                         addText(EXZI18N.inst().get("ERR.INVALID_EXT", inputFileName));
                         startProcess = false;
                     }

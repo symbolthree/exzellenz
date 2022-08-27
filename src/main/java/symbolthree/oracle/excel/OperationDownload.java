@@ -40,8 +40,6 @@ import java.sql.*;
 import java.util.*;
 
 public class OperationDownload extends Operation implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationDownload.java 20    2/15/17 6:14a Christopher Ho $";
 
     private int SHOWING_ROWCOUNT = EXZProp.instance().getInt(EXZ_LOG_INTERVAL);
     

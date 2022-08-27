@@ -3,210 +3,128 @@
 ---
 
 ## Changes in v. 2.0
- - Excel template version 2.0
-- Maven build to create uber jar
-- Transfer source code and document to Github
+- Excel template version 2.0
+- JRE 8 or higher
+- Oracle JDBC driver 19.15
+- Apache POI version 5.2.2
+- Simplify the program that all files are stored under the same dir.
 
 ## Changes in v. 1.12
-
 - Excel template version 1.10 to 1.12
-
 - Add parameter `KEEP_PARAMETER_WORKSHEET` that if it set to `N`, worksheet EXZELLENZ will be removed in the result file. It is for preparing reports to end-users.
-
 - Upgrade Apache POI version to 3.15
-
 - Add Help menu item to launch Windows CHM help file
-
 - Minor bug fix
 
 ## Changes in v. 1.11
-
 - Excel template version 1.10 to 1.11
-
 - Add parameter `CREATE_ROWID_COLUMN`. If it set to No, the `ROWID` column will not be created in `DOWNLOAD` and `INSERT` mode. This `ROWID` column is added in previous releases and no option to turn it off.
-
 - Move runtime variable `SAVE_NEW_FILE` to parameter; add parameter `NEW_FILE_NAME`. If `SAVE_NEW_FILE` is Yes, the new file is called `NEW_FILE_NAME`, which can use Java timestamp format (e.g. `$D{yyyy-mm-dd}`) in the filename.
-
 - Product rebranding.  Config file is stored in `$J(user.home)/symbolthree/exzellenz`
-
 - Upgrade Apache POI version to 3.14
 
 ## Changes in v. 1.10
-
 - Excel template version 1.9 to 1.10
-
 - Add parameter `CONFIRM_OPERATION`.  If it set to Yes, user is asked to confirm to continue the action after Excel file is selected.
-
 - Add colors to text in GUI mode
-
 - Upgrade Apache POI version to 3.13
-
 - Upgrade Oracle JDBC Driver to 12.1.0.2
 
 ## Changes in v. 1.9
 > CHANGES 
-
 - Excel template version 1.8 to 1.9
-
 - Upgrade Apache POI version to 3.11
-
 - Add java options `-Xms64m -Xmx1024m -XX:+UseParallelGC` to improve memory usage
-
 - Use SXSSF API to save Excel file to reduce memory usage
-
 > FIX
-
 - Fix issue when new Excel file is created, data worksheet is not active. Data will be corrupted in EXZELLENZ worksheet if column is deleted in data worksheet.
-
 - Fix parameter constraint in download mode when custom query is used.
 
 ## Changes in v. 1.8
-
 > CHANGE
-
 - Excel template version 1.7 to 1.8
-
 - Add parameter `EXZ_LOG_INTERVAL`: write a log statement per this no. of row processed
-
 - `EXZ_LOG_LEVEL` and `EXZ_LOG_INTERVAL` can be changed in popup menu
-
 - Window width and height are saved when program exit
-
 - Upgrade Apache POI version to 3.10.1
-
 - Compatible to Java 8
-
 - Config file and Excel templates are deleted during Uninstall
-
 - Minor cosmetic changes
 
 ## Changes in v. 1.7
 
 > CHANGE
-
 - Excel template version 1.6 to 1.7.
-
-- Use JDBC parameter to replace SERVER, PORT and SID parameters.  This chanage is
-to allow JDBC connection to RAC database.
-
+- Use JDBC parameter to replace SERVER, PORT and SID parameters.  This chanage is to allow JDBC connection to RAC database.
 - Compatible to Java 7
-
 - Add Oracle EBS R12 MOAC session control
-
 
 ## Changes in v. 1.6
 > FIX
-
-- In Download Mode, null value in numeric columns are incorrectly stored as 0 in
-Excel. It is stored as empty Excel cell now.
-
+- In Download Mode, null value in numeric columns are incorrectly stored as 0 in Excel. It is stored as empty Excel cell now.
 - Table name is not case sensitive now.
-
 - Able to evaluate formula in String and Date-formatted Excel cell.
-
 - Fix NPE when open an Excel file to process in the second time for the same program instance.
 
 > CHANGE
-
 - Excel template version 1.5 to 1.6.
-
 - Upgrade Apache POI version from 3.7 to 3.9.
-
 - Add `CUSTOM_QUERY` operational parameter which allow to download data using custom query.
-
 - ROWID is retrieved and stored in the Excel column when Upload Mode is used.
-
 - Add `CONTINUE_ON_ERROR` in Error Handling Mode.
-
 - Exception code is saved in the Excel Result Column.
-
 - The required fields in Excel Template will be highlighed in pink.
 
 ## Changes in v. 1.5
 > FIX
-
 - Fix insert mode error if table columns are not avaliable in Excel.
-
 - Fix GUI log display and scrolling issue when processing file.
 
 > CHANGE
-
 - Excel template version 1.4 to 1.5.
-
 - Upgrade Apache POI version from 3.6 to 3.7.
-
 - Upgrade Oracle JDBC driver to 11gR2.
-
 - Add more info logging.
 
 ## Changes in v. 1.4
 > NEW
-
 - Add Oracle EBS connection mode (APPLICATIONS)
-
 - Add EBS RunAs user mode
-
 - Add delete `OPERATION_MODE`
-
 - Add ability to create template and download data from database views
-
 - Add parameter `SAVE_NEW_FILE` so that a new file will be created after process
-
 - (GUI) Add popup menu to (1) select file instead of drag-n-drop; (2) set `SAVE_NEW_FILE` parameter
 
 > CHANGE
-
 - Change Excel Template version to 1.4
-
 - Internationalized string
-
 - Cosmetic and usability enhancement
-
 - Add geronimo-stax-api_1.0_spec-1.0.jar and replace poi-ooxml-3.6-20091214.jar with ooxml-schemas-1.0.jar (fix error when parsing xlsx with JRE1.5)
 
 ## Changes in v. 1.3
-
 > NEW
-
 - Support Microsoft Excel 2007 format
-
 > CHANGE
-
 - Change Excel Template version to 1.3
-
 - Change POI version to 3.6
-
 - Add jar files to support Excel 2007 format
-
 - Auto-Fit column width in Template and Download operations
-
 - Set Active Sheet in Template and Download operations
-
 - Hide ROWID column in Download Operation
 
-
 ## Changes in v. 1.2
-
 - Fix error when the date value is empty in DOWNLOAD mode
-
 - Fix Excel template version / program version conflict bug
-
 - Fix extra ROWID column added in DOWNLOAD mode
 
 ## Changes in v. 1.1
-
 > NEW
-
 - Add TEMPLATE operation mode - generate Excel template worksheet for a table
-
 - Add DOWNLOAD operation mode - download table data of user-selected columns from Oracle to Excel worksheet
-
 - Add UPDATE operation mode - after data is downloaded to Excel worksheet, selected row of data can be updated back to Oracle database table.
 
 > CHANGE
-
 - Change POI version from 3.2 to 3.5 beta 6
-
 - Change Oracle JDBC driver to Oracle DB 11.1.0.6.0
 
 ## Known Limitation / Bugs

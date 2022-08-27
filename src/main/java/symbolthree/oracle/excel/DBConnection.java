@@ -28,8 +28,6 @@
  * $Revision: 13 $
 ******************************************************************************/
 
-
-
 package symbolthree.oracle.excel;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -45,8 +43,6 @@ import java.sql.*;
 import java.util.Properties;
 
 public class DBConnection implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/DBConnection.java 13    7/12/16 11:09a Christopher Ho $";
     private static DBConnection instance = null;
     private Connection          connection;
 

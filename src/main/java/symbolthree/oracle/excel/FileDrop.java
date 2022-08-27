@@ -84,9 +84,6 @@ import javax.swing.border.*;
  */
 @SuppressWarnings("unchecked")
 public class FileDrop {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/FileDrop.java 7     7/12/16 11:09a Christopher Ho $";
-
     // BEGIN 2007-09-12 Nathan Blomquist -- Linux (KDE/Gnome) support added.
     private static String ZERO_CHAR_STRING = "" + (char) 0;
 

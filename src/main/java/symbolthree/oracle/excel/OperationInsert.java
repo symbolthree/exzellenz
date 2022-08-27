@@ -43,8 +43,6 @@ import java.sql.*;
 import java.util.*;
 
 public class OperationInsert extends Operation implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationInsert.java 16    7/14/16 9:44p Christopher Ho $";
 
     private int SHOWING_ROWCOUNT = EXZProp.instance().getInt(EXZ_LOG_INTERVAL);
     

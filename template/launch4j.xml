@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar></jar>
+  <outfile>EXZ.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>template\EXZ.ICO</icon>
+  <singleInstance>
+    <mutexName>EXZELLENZ</mutexName>
+    <windowTitle>EXZELLENZ</windowTitle>
+  </singleInstance>
+  <classPath>
+    <mainClass>symbolthree.oracle.excel.EXZ</mainClass>
+    <cp>.\EXZELLENZ-@build.version@.jar</cp>
+  </classPath>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>    
+    <minVersion>1.8.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+    <opt>-Dfile.encoding=UTF8</opt>
+    <opt>-Xms64m</opt>
+    <opt>-Xmx1024m</opt>
+    <opt>-XX:+UseParallelGC</opt>
+  </jre>
+  <splash>
+    <file>template\splash.bmp</file>
+    <waitForWindow>true</waitForWindow>
+    <timeout>60</timeout>
+    <timeoutErr>true</timeoutErr>
+  </splash>
+  <versionInfo>
+    <fileVersion>@fileVersion@</fileVersion>
+    <txtFileVersion>@txtFileVersion@</txtFileVersion>
+    <fileDescription>EXZELLENZ</fileDescription>
+    <copyright>Copyright (c) 2022 Christopher.Ho@symbolthree.com</copyright>
+    <productVersion>@productVersion@</productVersion>
+    <txtProductVersion>@txtProductVersion@</txtProductVersion>
+    <productName>EXZELLENZ</productName>
+    <companyName>symbolthree.com</companyName>
+    <internalName>EXZELLENZ</internalName>
+    <originalFilename>EXZ.exe</originalFilename>
+  </versionInfo>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <bundledJreErr>This application was configured to use a bundled Java Runtime Environment but the runtime is missing or corrupted.</bundledJreErr>
+    <jreVersionErr>This application requires a Java Runtime Environment</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>

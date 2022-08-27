@@ -35,8 +35,6 @@ package symbolthree.oracle.excel;
 import java.util.*;
 
 public class EXZParams implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZParams.java 9     2/17/17 9:58a Christopher Ho $";
     private static EXZParams exzParams = null;
     private Properties       prop      = null;
 

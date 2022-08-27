@@ -31,8 +31,6 @@
 package symbolthree.oracle.excel;
 
 public class OperationFactory implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationFactory.java 6     7/12/16 11:09a Christopher Ho $";
     private String opMode = null;
 
     public OperationFactory(String mode) {

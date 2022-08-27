@@ -43,8 +43,6 @@ import java.sql.*;
 import java.util.*;
 
 public class OperationTemplate extends Operation implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationTemplate.java 18    2/17/17 9:58a Christopher Ho $";
     private String objectType = "";
 
     public OperationTemplate() {

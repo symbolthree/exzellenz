@@ -41,8 +41,6 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class EXZELLENZ implements Runnable, Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZELLENZ.java 35    2/17/17 9:58a Christopher Ho $";
     private Hashtable<String, Cell> specialCells = new Hashtable<String, Cell>();
     private File                    excelFile;
     private FileInputStream         fis;
@@ -188,7 +186,7 @@ public class EXZELLENZ implements Runnable, Constants {
             String templateVer = EXZParams.instance().getValue(VERSION);
             int templateMajorVer = Integer.parseInt(templateVer.split("\\.")[0]);
             int templateMinorVer = Integer.parseInt(templateVer.split("\\.")[1]);
-
+            
             if (templateMajorVer < LOWEST_MAJOR_VERSION_ALLOWED) {
                 EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("ERR.VERSION", LOWEST_MAJOR_VERSION_ALLOWED + "." + LOWEST_MINOR_VERSION_ALLOWED));
                 throw new EXZException();

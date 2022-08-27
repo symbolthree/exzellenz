@@ -43,8 +43,6 @@ import java.util.Locale;
 import java.util.StringTokenizer;
 
 public class EXZI18N implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZI18N.java 4     7/12/16 11:09a Christopher Ho $";
     private static EXZI18N exzI18N = null;
     private Locale         locale;
 

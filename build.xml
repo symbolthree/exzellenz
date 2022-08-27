@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="EXZELLENZ" default="buildEXE" basedir=".">
+  <tstamp/>
+  <property name="launch4j.dir" location="D:\WORK\launch4j-3.14" />
+  <taskdef name="launch4j"
+           classname="net.sf.launch4j.ant.Launch4jTask"
+           classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar"
+  />
+  <property name="major.version" value="2.0" />
+
+  <target name="init">
+    <propertyfile file="build.properties">
+      <entry key="build.version" type="string" value="${major.version}"/>
+      <entry key="build.number" type="int" operation="+" default="0"/>
+      <entry key="build.time" type="date" value="now"/>
+      <entry key="build.product" type="string" value="≡ EXZELLENZ ≡"/>
+    </propertyfile>
+    <property file="build.properties"/>
+    <property name="template.version" value="${major.version}"/>
+    <property name="outputArchive" value="output\EXZELLENZ-${build.version}-build${build.number}.zip"/>
+    <property name="releaseDir" value="dist\exzellenz-${build.version}"/>
+    <delete file="${outputArchive}"/>
+    <delete dir="${releaseDir}" />
+  </target>
+
+  <target name="build" depends="init">
+    <copy file="target\exzellenz-${major.version}.jar" todir="${releaseDir}"/>
+
+    <copy file="build.properties" todir="${releaseDir}"/>
+
+	  <fixcrlf file="template\EXZELLENZ.sh" eol="lf" eof="remove" destDir="${releaseDir}" />
+	  <fixcrlf file="template\EXZ.sh"       eol="lf" eof="remove" destDir="${releaseDir}" />
+		<copy file="template\EXZELLENZ.bat"  toDir="${releaseDir}"/>
+		<copy file="template\EXZ.bat"        toDir="${releaseDir}"/>
+		<copy file="template\EXZ.properties" toDir="${releaseDir}"/>
+		<copy file="template\splash.gif"     toDir="${releaseDir}"/>
+
+	  <replace file="${releaseDir}\EXZELLENZ.sh"  token="@build.version@" value="${build.version}"/>
+	  <replace file="${releaseDir}\EXZ.sh"        token="@build.version@" value="${build.version}"/>
+	  <replace file="${releaseDir}\EXZELLENZ.bat" token="@build.version@" value="${build.version}"/>
+	  <replace file="${releaseDir}\EXZ.bat"       token="@build.version@" value="${build.version}"/>
+
+	  <copy file="template\README" toDir="${releaseDir}"/>
+	  <copy file="template\GPL.txt" toDir="${releaseDir}"/>
+	  <copy file="template\LICENSE.txt" toDir="${releaseDir}"/>
+	  <copy file="template\LICENSE_3RD_PARTY.txt" toDir="${releaseDir}"/>
+
+	  <copy file="template\EXZ_template_${template.version}.xls" toDir="${releaseDir}"/>
+	  <copy file="template\EXZ_template_${template.version}.xlsx" toDir="${releaseDir}"/>
+	  <!-- <copy file="doc\EXZELLENZ.chm" toDir="${releaseDir}\doc" /> -->
+  </target>
+
+  <target name="buildEXE" depends="build">
+  	<delete file="launch4j.xml"/>
+  	<delete file="installer.iss"/>
+  	<copy file="template\launch4j.xml" tofile="launch4j.xml"/>
+  	<replace file="launch4j.xml" token="@build.version@"     value="${build.version}"/>
+  	<replace file="launch4j.xml" token="@fileVersion@"       value="${build.version}.${build.number}.0"/>
+  	<replace file="launch4j.xml" token="@txtFileVersion@"    value="${build.version} build ${build.number}"/>
+  	<replace file="launch4j.xml" token="@productVersion@"    value="${build.version}.${build.number}.0"/>
+  	<replace file="launch4j.xml" token="@txtProductVersion@" value="${build.version} build ${build.number}"/>
+
+    <launch4j configFile="launch4j.xml"
+              fileVersion="${build.version}.${build.number}.0"
+              txtFileVersion="${build.version} build ${build.number}"
+              productVersion="${build.version}.${build.number}.0"
+              txtProductVersion="${build.version} build ${build.number}"
+    />
+    <copy file="EXZ.exe" toDir="${releaseDir}"/>
+<!--
+    <copy file="template\installer.iss" tofile=".\installer.iss"/>
+    <replace file="installer.iss" token="@build.version@" value="${build.version}"/>
+    <replace file="installer.iss" token="@build.number@" value="${build.number}"/>
+    <replace file="installer.iss" token="@template.version@" value="${template.version}"/>
+    <exec executable="${inno.setup.exe}">
+        <arg value="installer.iss"/>
+    </exec>
+-->
+  </target>
+
+  <target name="zip" depends="buildEXE">
+      <zip destfile=".\${outputArchive}"
+       basedir="${releaseDir}"
+       excludes="**/*Test.*, **/*.scc,**/*.xml,src/**,doc/**" />
+  </target>
+</project>

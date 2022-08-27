@@ -31,8 +31,6 @@
 package symbolthree.oracle.excel;
 
 public class TableColumn {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/TableColumn.java 7     7/12/16 11:09a Christopher Ho $";
     private boolean resultColumn = false;
     private boolean needed       = true;
     private boolean rowIDColumn  = false;

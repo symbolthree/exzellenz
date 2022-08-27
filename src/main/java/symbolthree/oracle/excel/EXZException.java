@@ -28,15 +28,11 @@
  * $Revision: 10 $
 ******************************************************************************/
 
-
 package symbolthree.oracle.excel;
 
 //~--- JDK imports ------------------------------------------------------------
 
 public class EXZException extends Exception {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZException.java 10    7/12/16 11:09a Christopher Ho $";
-
     /**
      *
      */

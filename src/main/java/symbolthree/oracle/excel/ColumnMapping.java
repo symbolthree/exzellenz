@@ -28,8 +28,6 @@
  * $Revision: 10 $
 ******************************************************************************/
 
-
-
 package symbolthree.oracle.excel;
 
 //~--- JDK imports ------------------------------------------------------------
@@ -37,8 +35,6 @@ package symbolthree.oracle.excel;
 import java.util.*;
 
 public class ColumnMapping implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/ColumnMapping.java 10    7/12/16 11:09a Christopher Ho $";
     private ArrayList<TableColumn> tableColumns = new ArrayList<TableColumn>();
     private String                 objectType;
 

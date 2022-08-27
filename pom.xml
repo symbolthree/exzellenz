@@ -1,18 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>symbolthree.oracle.excel</groupId>
   <artifactId>exzellenz</artifactId>
-  <version>3.0-SNAPSHOT</version>
+  <version>2.0</version>
   <name>EXZELLENZ</name>
   <description>[!CDATA [
   Java application to upload data from Excel to Oracle database / 
   download data to Excel from Oracle.]]
   </description>
+  
   <properties>
-	<maven.build.timestamp.format>yyyy-MM-dd HH.mm.ss</maven.build.timestamp.format>
-	<build.timestamp>${maven.build.timestamp}</build.timestamp>   
-	<maven.test.failure.ignore>true</maven.test.failure.ignore>
+	  <maven.build.timestamp.format>yyyy-MM-dd HH.mm.ss</maven.build.timestamp.format>
+	  <build.timestamp>${maven.build.timestamp}</build.timestamp>   
+	  <maven.test.failure.ignore>true</maven.test.failure.ignore>
  
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -21,6 +23,23 @@
     <poi.version>5.2.2</poi.version>
   </properties>
 
+<!--
+  <distributionManagement>
+	<repository>
+		<id>release</id>
+		<name>libs-releases</name>
+		<url>http://artifactory.symbolthree.com:8082/artifactory/libs-snapshot-local</url>
+	</repository>
+	<snapshotRepository>
+		<id>snapshots</id>
+		<name>libs-snapshots</name>
+		<url>http://artifactory.cibcdevops.com:8082/artifactory/libs-snapshot-local</url>
+	</snapshotRepository>
+	</distributionManagement>
+	<scm>
+	  <developerConnection>scm:git:https://gitlab.symbolthree.com/HOC/exzellenz.git</developerConnection>
+	</scm>
+-->	
   <dependencies>
     <dependency>
         <groupId>org.apache.poi</groupId>
@@ -40,32 +59,29 @@
     <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.7</version>
-    </dependency>
-		<dependency>
-		    <groupId>org.jdom</groupId>
-		    <artifactId>jdom</artifactId>
-		    <version>2.0.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>jaxen</groupId>
-		    <artifactId>jaxen</artifactId>
-		    <version>1.2.0</version>
-		</dependency>    
-    <dependency>
-      <groupId>oracle.jdbc</groupId>
-      <artifactId>oracle.jdbc</artifactId>
-      <version>18.3.0.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/ojdbc8_18.3.0.0.jar</systemPath>
+        <version>2.11.0</version>
     </dependency>
     <dependency>
-      <groupId>oracle.apps.fnd</groupId>
+        <groupId>org.jdom</groupId>
+        <artifactId>jdom2</artifactId>
+        <version>2.0.6.1</version>
+    </dependency>
+    <dependency>
+        <groupId>jaxen</groupId>
+        <artifactId>jaxen</artifactId>
+        <version>1.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>19.15.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>oracle.apps</groupId>
       <artifactId>fndext</artifactId>
       <version>120.9</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/fndext.jar</systemPath>
-    </dependency>    
+    </dependency>
+
   </dependencies>
   <build>
     <resources>
@@ -77,15 +93,19 @@
         </includes>
         <targetPath>/symbolthree/oracle/excel</targetPath>
       </resource>
-      <resource>
-        <directory>src\main\java</directory>
-        <includes>
-          <include>build.properties</include>
-        </includes>
-        <targetPath></targetPath>
-      </resource>
     </resources>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.2</version>
+        <configuration>
+          <excludes>
+            <exclude>**/*Test*.*</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -106,22 +126,64 @@
                     <exclude>META-INF/*.RSA</exclude>
                   </excludes>
                 </filter>
-              </filters>
+              </filters>            	
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <manifestEntries>
-                    <Name>symbolthree/oracle/excel</Name>
-								    <Specification-Title>≡ EXZELLENZ ≡</Specification-Title>
- 								    <Specification-Version>3.0-SNAPSHOT</Specification-Version>
-								    <Specification-Vendor>symbolthree.com</Specification-Vendor>
-								    <build-time>${build.timestamp}</build-time>
-								  </manifestEntries>
                 </transformer>
               </transformers>
             </configuration>
           </execution>
         </executions>
       </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>3.1.0</version>
+          <executions>
+              <execution>
+                  <id>zip-artifacts</id>
+                  <phase>package</phase>
+                  <goals>
+                      <goal>run</goal>
+                  </goals>
+            <configuration>
+              <target>
+                <property name="build.version" value="${project.version}"/>
+                <ant antfile="${basedir}/build.xml">
+                  <target name="zip"/>
+                </ant>
+              </target>
+            </configuration>
+              </execution>
+          </executions>
+
+      </plugin>
+<!--
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-assembly-plugin</artifactId>
+		<version>2.6</version>
+		<configuration>
+			<descriptorRefs>
+				<descriptorRef>jar-with-dependencies</descriptorRef>
+				<descriptorRef>bin</descriptorRef>
+				<descriptorRef>project</descriptorRef>
+			</descriptorRefs>
+			<descriptors>
+				<descriptor>assembly.xml</descriptor>
+			</descriptors>
+		</configuration>
+		<executions>
+			<execution>
+				<id>trigger-assembly</id>
+				<phase>package</phase>
+				<goals>
+					<goal>single</goal>
+				</goals>
+			</execution>
+		</executions>
+	  </plugin>
+-->	  
     </plugins>
   </build>
 </project>

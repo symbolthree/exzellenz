@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2017 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZ.java $
- * $Author: Christopher Ho $
- * $Date: 2/11/17 10:27a $
- * $Revision: 21 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;

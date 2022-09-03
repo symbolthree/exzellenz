@@ -4,7 +4,7 @@
 
 ### What Data Type it can handle ?
 
-VARCHAR2, INTEGER, NUMBER, DATE.  The DATE data is in the format as specified by the DATA_MASK parameter. 
+VARCHAR2, INTEGER, NUMBER, DATE.  The DATE data is in the format as specified by the DATA_MASK parameter. RAW / CLOB / BLOB are not supported.
 
 ### What is CREATE_ROWID_COLUMN parameter used for ?
 
@@ -38,4 +38,4 @@ Create a template from a database view. Remove RESULT column.  Set CREATE_ROWID_
 
 ### How can I turn on the debug mode to see more details if I encounter an error ?
 
-In GUI mode, from the pop-up menu you can change the Log Level to Debug.  Or you can change the paremeter LOG_LEVEL in the configuration  file (%USERPROFILE%/symbolthree/exzellenz/EXZ.properties). 
+In GUI mode, from the pop-up menu you can change the Log Level to Debug.  Or you can change the paremeter LOG_LEVEL in the configuration file EXZ.properties. 

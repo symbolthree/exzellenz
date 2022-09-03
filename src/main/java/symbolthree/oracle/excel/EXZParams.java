@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZParams.java $
- * $Author: Christopher Ho $
- * $Date: 2/17/17 9:58a $
- * $Revision: 9 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
@@ -35,8 +29,6 @@ package symbolthree.oracle.excel;
 import java.util.*;
 
 public class EXZParams implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZParams.java 9     2/17/17 9:58a Christopher Ho $";
     private static EXZParams exzParams = null;
     private Properties       prop      = null;
 

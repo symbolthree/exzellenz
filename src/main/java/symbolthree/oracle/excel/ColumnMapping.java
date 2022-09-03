@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,15 +20,7 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/ColumnMapping.java $
- * $Author: Christopher Ho $
- * $Date: 7/12/16 11:09a $
- * $Revision: 10 $
 ******************************************************************************/
-
-
 
 package symbolthree.oracle.excel;
 
@@ -37,8 +29,6 @@ package symbolthree.oracle.excel;
 import java.util.*;
 
 public class ColumnMapping implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/ColumnMapping.java 10    7/12/16 11:09a Christopher Ho $";
     private ArrayList<TableColumn> tableColumns = new ArrayList<TableColumn>();
     private String                 objectType;
 

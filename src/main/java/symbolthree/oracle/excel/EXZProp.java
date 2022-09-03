@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZProp.java $
- * $Author: Christopher Ho $
- * $Date: 7/14/16 9:44p $
- * $Revision: 16 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
@@ -38,9 +32,6 @@ import java.util.*;
 import org.apache.commons.io.FileUtils;
 
 public class EXZProp implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZProp.java 16    7/14/16 9:44p Christopher Ho $";
-    private static final String RESOURCE_BUNDLE = "EXZ.properties";
     private static EXZProp      exzInstance     = null;
     private Properties          prop;
 
@@ -49,14 +40,14 @@ public class EXZProp implements Constants {
 
         try {
             
-        	File f = new File(EXZ_APPLICATION_DIR);
-        	if (! f.exists()) FileUtils.forceMkdir(f);
+        	//File f = new File(EXZ_APPLICATION_DIR);
+        	//if (! f.exists()) FileUtils.forceMkdir(f);
 
-        	File propUser     = new File(EXZ_APPLICATION_DIR, RESOURCE_BUNDLE);
-        	if (! propUser.exists()) {
-        	  File propTemplate = new File(System.getProperty("user.dir"), RESOURCE_BUNDLE);
-        	  FileUtils.copyFile(propTemplate, propUser);
-        	}
+        	File propUser     = new File(EXZ_APPLICATION_DIR, EXZ_RESOURCE_BUNDLE);
+        	//if (! propUser.exists()) {
+        	//  File propTemplate = new File(System.getProperty("user.dir"), RESOURCE_BUNDLE);
+        	//  FileUtils.copyFile(propTemplate, propUser);
+        	//}
         	
             FileInputStream is = new FileInputStream(propUser);
             prop.load(is);
@@ -125,7 +116,7 @@ public class EXZProp implements Constants {
       try {
         File           tempfile = File.createTempFile("exz", "tmp");
         FileWriter     fw       = new FileWriter(tempfile);
-        File           propfile = new File(EXZ_APPLICATION_DIR, RESOURCE_BUNDLE);
+        File           propfile = new File(EXZ_APPLICATION_DIR, EXZ_RESOURCE_BUNDLE);
         BufferedReader reader   = new BufferedReader(new FileReader(propfile));
         String         line     = null;
 

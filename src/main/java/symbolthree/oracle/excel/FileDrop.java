@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/FileDrop.java $
- * $Author: Christopher Ho $
- * $Date: 7/12/16 11:09a $
- * $Revision: 7 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
@@ -84,9 +78,6 @@ import javax.swing.border.*;
  */
 @SuppressWarnings("unchecked")
 public class FileDrop {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/FileDrop.java 7     7/12/16 11:09a Christopher Ho $";
-
     // BEGIN 2007-09-12 Nathan Blomquist -- Linux (KDE/Gnome) support added.
     private static String ZERO_CHAR_STRING = "" + (char) 0;
 

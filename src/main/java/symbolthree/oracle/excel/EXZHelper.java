@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZHelper.java $
- * $Author: Christopher Ho $
- * $Date: 2/15/17 6:14a $
- * $Revision: 24 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
@@ -42,8 +36,6 @@ import java.text.*;
 import java.util.*;
 
 public class EXZHelper implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/EXZHelper.java 24    2/15/17 6:14a Christopher Ho $";
     final static private SimpleDateFormat timeFormat = new SimpleDateFormat("yyMMdd.HHmmss");
     public static String                  MAJOR_VER;
     public static String                  MINOR_VER;
@@ -464,11 +456,12 @@ public class EXZHelper implements Constants {
     // loaded the program version and build no. as a system variable EXZELLENZ_VERSION
     // 0 = all; 1=major; 2=minor
     public static void getVersion() {
-        InputStream is        = EXZHelper.class.getResourceAsStream("/build.properties");
-        Properties  buildProp = new Properties();
-
+        //InputStream is        = EXZHelper.class.getResourceAsStream("/build.properties");
+    	File f = new File(EXZ_APPLICATION_DIR, "build.properties");
+        Properties buildProp = new Properties(); 
+        
         try {
-            buildProp.load(is);
+            buildProp.load(new FileInputStream(f));
         } catch (Exception e) {
 
             // do nothing
@@ -484,9 +477,10 @@ public class EXZHelper implements Constants {
     }
 
 	public static String getVersionWithTimestamp() {
-        InputStream is        = EXZHelper.class.getResourceAsStream("/build.properties");
-        Properties  buildProp = new Properties();
-        try {
+        //InputStream is        = EXZHelper.class.getResourceAsStream("/build.properties");
+        Properties  buildProp = new Properties();		
+        try {		
+        InputStream is        = new FileInputStream(new File(EXZ_APPLICATION_DIR, "build.properties"));		
             buildProp.load(is);
         } catch (Exception e) {
             // do nothing
@@ -499,7 +493,7 @@ public class EXZHelper implements Constants {
 	}    
     
 	public static String getAuthorLine() {
-		return "Copyright(c) 2010-22 Christopher.ho@symbolthree.com";
+		return "Copyright(c) 2010-2022 Christopher.Ho@symbolthree.com";
 	}
 	
     public static String getExtension(File f) {

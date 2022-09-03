@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,19 +20,11 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationFactory.java $
- * $Author: Christopher Ho $
- * $Date: 7/12/16 11:09a $
- * $Revision: 6 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
 
 public class OperationFactory implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationFactory.java 6     7/12/16 11:09a Christopher Ho $";
     private String opMode = null;
 
     public OperationFactory(String mode) {

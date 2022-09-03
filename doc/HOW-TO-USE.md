@@ -3,64 +3,48 @@
 ---
 
 ## Installation
-### Windows
-Download the Windows Installer file `EXZELLENZ-[version].exe` and run it. When finish,
-a desktop shortcut and start menu items are created. Make sure you are using JRE6 or higher
-
-### Linux/Unix
-Download the zip archive `EXZELLENZ-[version].zip` and unzip the archive to any
-directory. Make sure you are using JRE6 or higher.
-
-In GNOME/KDE, run the script `EXZ.sh` to start the GUI version
-
-Run the `EXZELLENZ.sh` for the command line version
-
+- Unzip the archive `exzellenz-2.0.zip` to any directory
+- Make sure you are using **JRE 8** or higher
+- Run `EXZ.exe` / `EXZ.bat` / `EXZ.sh` to start the GUI version
+- Run the `EXZELLENZ.bat` / `EXZELLENZ.sh` for the console-based version. It takes one argument  (Excel file in full path).
 
 ## How the Program Works
 
-There are 2 template files provided during installation
+There are 2 template files provided:
 
 - exz_template_[vesrion].xls (97-2003 format)
 - exz_template_[vesrion].xlsx (2007 or later format)
 
 
-Database connection information and operation directives are stored in the worksheet
-called `EXZELLENZ` in the template file.
+Database connection information and operation directives are stored in the worksheet called `EXZELLENZ` in the template file.
 
-This template file is read-only by default.  It's better to make a copy of this template file and add your parameters in this file.
+> **You should make a copy of this template file and add your parameters in this file.**
 
-Open the program, and you can drag-and-drop the template file to the program.  The
-program read the parameters, then start the download / upload / update / delete operation accordingly.
+Start the program, and you can drag-and-drop the template file to the program.  The program read the parameters, then start the download / upload / update / delete operation accordingly.
 
 Operation information log is shown in the program.
 
-A new file will be created after the operation has done.  his new file contains
-operation result for each row of data processed.
+A new file will be created after the operation has done.  his new file contains operation result for each row of data processed.
 
-Once this program is started, a configuration file EXZ.properties is created in directory `%USERPROFILE%\symbolthree\exzellenz`.
-
+The configuration file `EXZ.properties` is present in the same directory.
 
 ## GUI Interface
 
-Run EXZ.exe or EXZ.sh
+Run `EXZ.exe` or `EXZ.sh`
 
-You can either drag-and-drop the Excel file to the program, or use popup menu (right
-click) -> Select File, to kick off the process.
+You can either drag-and-drop the Excel file to the program, or use popup menu (right click) -> Select File, to kick off the process.
 
-If `SAVE_NEW_FILE` is set to `N`, the selected Excel file will be updated with the process result. If it is set to `Y`, for any successful operation a new Excel file which stored the result will be created. File name is the same as the original one and suffixed by (n), where n = 1,2,...n, if "NEW_FILE_NAME" is not specified.  
+If `SAVE_NEW_FILE` is set to `N`, the selected Excel file will be updated with the process result. If it is set to `Y`, for any successful operation a new Excel file which stored the result will be created. File name is the same as the original one and suffixed by (n), where n = 1,2,...n, if `NEW_FILE_NAME` is not specified.  
 
-By default, parameter `CONFIRM_OPERATION` is set to `Y`.  After the Excel file is picked up, the program will pause for user's confirmation. Set it to "N" if you want to run this program without interruption. 
+By default, parameter `CONFIRM_OPERATION` is set to `Y`.  After the Excel file is picked up, the program will pause for user's confirmation. Set it to `N` if you want to run this program without interruption. 
 
-You can change Log Interval in the pop-up menu. The program shows message to tell
-much many line of data has been processed. Default is 100, and other possible values
-are 10, 50, 500, and 1000.
+You can change Log Interval in the pop-up menu. The program shows message to tell much many line of data has been processed. Default is 100, and other possible values are 10, 50, 500, and 1000.
 
 <img src="pic/image1.png"/>
 
 ## Command Line Interface
 
-Run the program `EXZELLENZ.bat` or `EXZELLENZ.sh`. It takes one argument - the Excel
-file name.
+Run the program `EXZELLENZ.bat` or `EXZELLENZ.sh`. It takes one argument - the Excel file name.
 
 EXZELLENZ.bat/sh [Excel file name with full path]
 

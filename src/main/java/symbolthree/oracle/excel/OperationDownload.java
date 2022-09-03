@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationDownload.java $
- * $Author: Christopher Ho $
- * $Date: 2/15/17 6:14a $
- * $Revision: 20 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
@@ -40,8 +34,6 @@ import java.sql.*;
 import java.util.*;
 
 public class OperationDownload extends Operation implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationDownload.java 20    2/15/17 6:14a Christopher Ho $";
 
     private int SHOWING_ROWCOUNT = EXZProp.instance().getInt(EXZ_LOG_INTERVAL);
     

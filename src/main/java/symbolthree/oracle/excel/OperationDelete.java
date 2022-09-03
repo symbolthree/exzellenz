@@ -1,7 +1,7 @@
 /******************************************************************************
  *
  * ≡ EXZELLENZ ≡
- * Copyright (C) 2009-2016 Christopher Ho 
+ * Copyright (C) 2009-2022 Christopher Ho 
  * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
@@ -20,12 +20,6 @@
  *
  * E-mail: christopher.ho@symbolthree.com
  *
- * ================================================
- *
- * $Archive: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationDelete.java $
- * $Author: Christopher Ho $
- * $Date: 7/12/16 11:09a $
- * $Revision: 5 $
 ******************************************************************************/
 
 package symbolthree.oracle.excel;
@@ -55,8 +49,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class OperationDelete extends Operation implements Constants {
-    public static final String RCS_ID =
-        "$Header: /TOOL/EXZELLENZ/src/symbolthree/oracle/excel/OperationDelete.java 5     7/12/16 11:09a Christopher Ho $";
 
     private int SHOWING_ROWCOUNT = EXZProp.instance().getInt(EXZ_LOG_INTERVAL);
     

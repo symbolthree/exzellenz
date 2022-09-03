@@ -17,7 +17,7 @@
     </propertyfile>
     <property file="build.properties"/>
     <property name="template.version" value="${major.version}"/>
-    <property name="outputArchive" value="output\EXZELLENZ-${build.version}-build${build.number}.zip"/>
+    <property name="outputArchive" value="output\exzellenz-${build.version}-build${build.number}.zip"/>
     <property name="releaseDir" value="dist\exzellenz-${build.version}"/>
     <delete file="${outputArchive}"/>
     <delete dir="${releaseDir}" />
@@ -39,6 +39,9 @@
 	  <replace file="${releaseDir}\EXZ.sh"        token="@build.version@" value="${build.version}"/>
 	  <replace file="${releaseDir}\EXZELLENZ.bat" token="@build.version@" value="${build.version}"/>
 	  <replace file="${releaseDir}\EXZ.bat"       token="@build.version@" value="${build.version}"/>
+
+    <chmod file="${releaseDir}\EXZ.sh" perm="ugo+rx"/>
+    <chmod file="${releaseDir}\EXZELLENZ.sh" perm="ugo+rx"/>
 
 	  <copy file="template\README" toDir="${releaseDir}"/>
 	  <copy file="template\GPL.txt" toDir="${releaseDir}"/>
@@ -67,6 +70,20 @@
               txtProductVersion="${build.version} build ${build.number}"
     />
     <copy file="EXZ.exe" toDir="${releaseDir}"/>
+  </target>
+
+  <target name="zip" depends="buildEXE">
+      <zip destfile=".\${outputArchive}"
+       basedir="dist"
+       excludes="**/*Test.*, **/*.scc,**/*.xml,src/**,doc/**" />
+  </target>
+
+ <target name="cleanup" depends="zip">
+	<delete file="launch4j.xml"/>
+	<delete file="EXZ.exe"/>
+	<delete file="dependency-reduced-pom.xml"/>
+ </target>
+  
 <!--
     <copy file="template\installer.iss" tofile=".\installer.iss"/>
     <replace file="installer.iss" token="@build.version@" value="${build.version}"/>
@@ -76,11 +93,5 @@
         <arg value="installer.iss"/>
     </exec>
 -->
-  </target>
-
-  <target name="zip" depends="buildEXE">
-      <zip destfile=".\${outputArchive}"
-       basedir="${releaseDir}"
-       excludes="**/*Test.*, **/*.scc,**/*.xml,src/**,doc/**" />
-  </target>
+  
 </project>

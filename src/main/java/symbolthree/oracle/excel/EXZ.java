@@ -99,6 +99,10 @@ public class EXZ implements Constants, ActionListener {
             EXZ exz = new EXZ();
 
             exz.start();
+        
+        } catch (java.awt.HeadlessException e) {
+        	System.out.println("\r\nNo display can be used. Run EXZELLENZ.sh instead.\r\n");
+        	
         } catch (Exception e) {
             e.printStackTrace();
         }

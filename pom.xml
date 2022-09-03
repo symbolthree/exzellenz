@@ -72,6 +72,16 @@
         <version>1.2.0</version>
     </dependency>
     <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.18.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.18.0</version>
+    </dependency>    
+    <dependency>
       <groupId>com.oracle.database.jdbc</groupId>
       <artifactId>ojdbc8</artifactId>
       <version>19.15.0.0</version>
@@ -90,6 +100,7 @@
         <includes>
           <include>EXZ_STRING.xml</include>
           <include>exzellenz_icon.gif</include>
+          <include>banner.txt</include>
         </includes>
         <targetPath>/symbolthree/oracle/excel</targetPath>
       </resource>
@@ -150,40 +161,13 @@
               <target>
                 <property name="build.version" value="${project.version}"/>
                 <ant antfile="${basedir}/build.xml">
-                  <target name="zip"/>
+                  <target name="cleanup"/>
                 </ant>
               </target>
             </configuration>
               </execution>
           </executions>
-
       </plugin>
-<!--
-	  <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-assembly-plugin</artifactId>
-		<version>2.6</version>
-		<configuration>
-			<descriptorRefs>
-				<descriptorRef>jar-with-dependencies</descriptorRef>
-				<descriptorRef>bin</descriptorRef>
-				<descriptorRef>project</descriptorRef>
-			</descriptorRefs>
-			<descriptors>
-				<descriptor>assembly.xml</descriptor>
-			</descriptors>
-		</configuration>
-		<executions>
-			<execution>
-				<id>trigger-assembly</id>
-				<phase>package</phase>
-				<goals>
-					<goal>single</goal>
-				</goals>
-			</execution>
-		</executions>
-	  </plugin>
--->	  
     </plugins>
   </build>
 </project>

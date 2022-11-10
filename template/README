@@ -1,4 +1,4 @@
-EXZELLENZ 2.0
+EXZELLENZ 2.1
 
 Copyright (C) 2022 Christopher.Ho@symbolthree.com
 
@@ -17,7 +17,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 =========================
-README for EXZELLENZ 2.0 
+README for EXZELLENZ 2.1 
 =========================
 - Unzip the archive to any directory
 - Make sure you are using JRE 8 or higher
@@ -25,6 +25,11 @@ README for EXZELLENZ 2.0
 - Run the EXZELLENZ.bat / EXZELLENZ.sh for the console-based version. It takes one argument 
   (Excel file in full path).
 
+=========================
+Changes in v. 2.1
+=========================
+- Excel template version 2.0 to 2.1
+- add OWNER parameter for operating on owner.table instead of user.table
 
 =========================
 Changes in v. 2.0

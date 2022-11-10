@@ -3,7 +3,7 @@
 ---
 
 ## Installation
-- Unzip the archive `exzellenz-2.0.zip` to any directory
+- Unzip the archive `exzellenz-2.1.zip` to any directory
 - Make sure you are using **JRE 8** or higher
 - Run `EXZ.exe` / `EXZ.bat` / `EXZ.sh` to start the GUI version
 - Run the `EXZELLENZ.bat` / `EXZELLENZ.sh` for the console-based version. It takes one argument  (Excel file in full path).

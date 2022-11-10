@@ -69,13 +69,13 @@ public class OperationDownload extends Operation implements Constants {
                 if (objectType.equals("TABLE")) {
                     colType.add(tabCol.getColumnType());
                     selectSQL = selectSQL + columnName + "," + System.getProperty("line.separator");
-                    excelColPosition.add(new Integer(tabCol.getExcelColumnNo()));                    
+                    excelColPosition.add(Integer.valueOf(tabCol.getExcelColumnNo()));                    
                 }
 
                 if (!objectType.equals("TABLE") && ! columnName.equals("ROWID")) {
                     colType.add(tabCol.getColumnType());
                     selectSQL = selectSQL + columnName + "," + System.getProperty("line.separator");
-                    excelColPosition.add(new Integer(tabCol.getExcelColumnNo()));                    
+                    excelColPosition.add(Integer.valueOf(tabCol.getExcelColumnNo()));                    
                 }
             }
         }
@@ -146,7 +146,7 @@ public class OperationDownload extends Operation implements Constants {
                             String value = rs.getString(i);
 
                             //cell.setCellValue(Cell.CELL_TYPE_STRING);
-                            cell.setCellType(CellType.STRING);
+                            //cell.setCellType(CellType.STRING);
                             
                             if (cell instanceof HSSFCell) {
                                 cell.setCellValue(new HSSFRichTextString(value));
@@ -162,7 +162,7 @@ public class OperationDownload extends Operation implements Constants {
 
                             if (!rs.wasNull()) {
                               //cell.setCellValue(Cell.CELL_TYPE_NUMERIC);
-                            	cell.setCellType(CellType.NUMERIC);
+                              //cell.setCellType(CellType.NUMERIC);
                               cell.setCellValue(value);
                             }
                             
@@ -173,7 +173,7 @@ public class OperationDownload extends Operation implements Constants {
 
                             if (!rs.wasNull()) {
                                 //cell.setCellValue(Cell.CELL_TYPE_NUMERIC);
-                            	cell.setCellType(CellType.NUMERIC);
+                            	//cell.setCellType(CellType.NUMERIC);
                                 cell.setCellValue(value);
                             }
 
@@ -185,7 +185,7 @@ public class OperationDownload extends Operation implements Constants {
 
                             if (!rs.wasNull()) {
                                 //cell.setCellValue(Cell.CELL_TYPE_NUMERIC);
-                                cell.setCellType(CellType.NUMERIC);
+                                //cell.setCellType(CellType.NUMERIC);
                                 cell.setCellValue(value);
                             }
                                 
@@ -211,7 +211,7 @@ public class OperationDownload extends Operation implements Constants {
                             String value = rs.getString(i);
 
                             //cell.setCellValue(Cell.CELL_TYPE_STRING);
-                            cell.setCellType(CellType.STRING);
+                            //cell.setCellType(CellType.STRING);
 
                             if (cell instanceof HSSFCell) {
                                 cell.setCellValue(new HSSFRichTextString(value));

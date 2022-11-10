@@ -122,9 +122,17 @@ public class Operation implements Constants {
       } else {
     	// check table or view
         String tableName  = EXZParams.instance().getValue(TABLE_NAME);
+        String owner      = EXZParams.instance().getValue(OWNER);
+        
         String sqlStmt    = "SELECT OBJECT_TYPE FROM ALL_OBJECTS WHERE OBJECT_NAME='" + 
-                             tableName.toUpperCase() + "' AND OWNER IN ('" + 
-        		             EXZParams.instance().getValue(USERNAME).toUpperCase() + "', 'PUBLIC')";
+                			tableName.toUpperCase() + "' AND ";
+
+        if (owner != null && ! owner.equals("")) {
+          sqlStmt = sqlStmt + "OWNER='" + owner + "'";	
+        } else {
+          sqlStmt = sqlStmt + "OWNER IN ('" +
+             EXZParams.instance().getValue(USERNAME).toUpperCase() + "', 'PUBLIC')";
+        }
 
         EXZHelper.log(LOG_DEBUG, "Object Checking SQL = " + sqlStmt);        
         
@@ -160,7 +168,7 @@ public class Operation implements Constants {
                 
                 rs.close();
                 
-                EXZHelper.log(LOG_DEBUG, "Object Type of " + tableName + " is " + objectType);                
+                EXZHelper.log(LOG_DEBUG, "Object Type of SYNONYM " + tableName + " is " + objectType);                
             }
             
             if (!objectType.equals("TABLE") &&

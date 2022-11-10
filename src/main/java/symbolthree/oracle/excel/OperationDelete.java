@@ -59,6 +59,10 @@ public class OperationDelete extends Operation implements Constants {
     @Override
     public void doOperation() throws EXZException {
         String tableName  = EXZParams.instance().getValue(TABLE_NAME);
+        String owner      = EXZParams.instance().getValue(OWNER);
+        if (owner != null && !owner.equals("")) {
+        	tableName = owner + "." + tableName;
+        }        
         String objectType = super.getObjectType();
 
         if (!objectType.equals("TABLE")) {
@@ -90,7 +94,7 @@ public class OperationDelete extends Operation implements Constants {
                 }
             }
 
-            colPosition.add(new Integer(rowIDPos));
+            colPosition.add(Integer.valueOf(rowIDPos));
             colType.add("ROWID");
             EXZHelper.log(LOG_DEBUG, prepareSQL);
 

@@ -38,7 +38,7 @@ public class OperationFactory implements Constants {
         try {
             Class<?> clazz = Class.forName(className);
 
-            op = (Operation) clazz.newInstance();
+            op = (Operation) clazz.getDeclaredConstructor().newInstance();
 
             return op;
         } catch (ClassNotFoundException cnfe) {
@@ -47,16 +47,12 @@ public class OperationFactory implements Constants {
             EXZHelper.logError(cnfe);
 
             throw new EXZException(cnfe);
-        } catch (IllegalAccessException iae) {
-            EXZHelper.log(LOG_ERROR, "Illegal access of class " + className);
-            EXZHelper.logError(iae);
-
-            throw new EXZException(iae);
-        } catch (InstantiationException ie) {
+            
+        } catch (Exception e) {
             EXZHelper.log(LOG_ERROR, "Cannot create instance of class " + className);
-            EXZHelper.logError(ie);
+            EXZHelper.logError(e);
 
-            throw new EXZException(ie);
-        }
+            throw new EXZException(e);
+		}
     }
 }

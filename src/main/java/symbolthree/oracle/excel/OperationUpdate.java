@@ -45,6 +45,10 @@ public class OperationUpdate extends Operation {
     @Override
     public void doOperation() throws EXZException {
         String tableName  = EXZParams.instance().getValue(TABLE_NAME);
+        String owner      = EXZParams.instance().getValue(OWNER);
+        if (owner != null && !owner.equals("")) {
+        	tableName = owner + "." + tableName;
+        }        
         String objectType = super.getObjectType();
 
         if (!objectType.equals("TABLE")) {
@@ -84,7 +88,7 @@ public class OperationUpdate extends Operation {
                         &&!tabCol.getColumnType().equals("ROWID")) {
                     String columnName = tabCol.getColumnName();
 
-                    colPosition.add(new Integer(tabCol.getExcelColumnNo()));
+                    colPosition.add(Integer.valueOf(tabCol.getExcelColumnNo()));
                     colType.add(tabCol.getColumnType());
                     prepareSQL = prepareSQL + columnName + "=?,";
                 }
@@ -95,7 +99,7 @@ public class OperationUpdate extends Operation {
                 }
             }
 
-            colPosition.add(new Integer(rowIDPos));
+            colPosition.add(Integer.valueOf(rowIDPos));
             colType.add("ROWID");
             prepareSQL = prepareSQL.substring(0, prepareSQL.length() - 1);
             prepareSQL = prepareSQL + " WHERE ROWID=?";

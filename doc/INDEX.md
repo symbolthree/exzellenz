@@ -1,6 +1,6 @@
 <table>
 <tr><td><img src="pic/exzellenz_icon.gif"></td>
-<td><div style="font-size:36px">≡ EXZELLENZ 2.0 ≡</div></td>
+<td><div style="font-size:36px">≡ EXZELLENZ 2.1 ≡</div></td>
 </table>
 
 # User Guide & Tutorials

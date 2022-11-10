@@ -47,6 +47,10 @@ public class OperationInsert extends Operation implements Constants {
     @Override
     public void doOperation() throws EXZException {
         String tableName  = EXZParams.instance().getValue(TABLE_NAME);
+        String owner      = EXZParams.instance().getValue(OWNER);
+        if (owner != null && !owner.equals("")) {
+        	tableName = owner + "." + tableName;
+        }
         String objectType = super.getObjectType();
 
         if (!objectType.equals("TABLE")) {
@@ -80,7 +84,7 @@ public class OperationInsert extends Operation implements Constants {
 
                   } else {
 
-                    colPosition.add(new Integer(tabCol.getExcelColumnNo()));
+                    colPosition.add(Integer.valueOf(tabCol.getExcelColumnNo()));
                     colType.add(tabCol.getColumnType());
                     prepareSQL    = prepareSQL + columnName + ",";
                     questionMarks = questionMarks + "?,";

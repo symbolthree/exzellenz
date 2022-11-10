@@ -130,6 +130,8 @@ public interface Constants {
     public static String       NEW_FILE_NAME             = "NEW_FILE_NAME";       /* new in version 1.11 */
     
     public static String       KEEP_PARAMETER_WORKSHEET  = "KEEP_PARAMETER_WORKSHEET"; /* new in version 1.12 */
+	
+	public static String       OWNER                     = "OWNER"; /* new in version 2.1 */
 
 
     

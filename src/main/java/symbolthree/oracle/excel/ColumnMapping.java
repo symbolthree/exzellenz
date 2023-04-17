@@ -75,24 +75,24 @@ public class ColumnMapping implements Constants {
         while (itr.hasNext()) {
             TableColumn tabCol = (TableColumn) itr.next();
 
-            EXZHelper.log(LOG_DEBUG, "Checking [" + tabCol.getColumnName() + ", " + tabCol.getExeclColumnName() + "]");
+            EXZHelper.log(LOG_DEBUG, "Checking [" + tabCol.getColumnName() + ", " + tabCol.getExcelColumnName() + "]");
             
             if (!tabCol.isResultColumn() &&
             	!tabCol.isRowIDColumn()) {
             	
                 if (! tabCol.isNameMatched() &&
-                	! EXZHelper.isEmpty(tabCol.getExeclColumnName())) {
+                	! EXZHelper.isEmpty(tabCol.getExcelColumnName())) {
                 	
                     rtnValue = false;
                     EXZHelper.log(LOG_ERROR,
                                   EXZI18N.inst().get("ERR.INVALID_MAPPING", tabCol.getColumnName(),
-                                                     tabCol.getExeclColumnName()));
+                                                     tabCol.getExcelColumnName()));
                 }
 
                 if (! tabCol.isNameMatched() && 
-                	EXZHelper.isEmpty(tabCol.getExeclColumnName())) {
+                	EXZHelper.isEmpty(tabCol.getExcelColumnName())) {
                     
-                	tabCol.setExeclColumnName(tabCol.getColumnName());
+                	tabCol.setExcelColumnName(tabCol.getColumnName());
                 }
             }
         }
@@ -113,7 +113,7 @@ public class ColumnMapping implements Constants {
             TableColumn tabCol = (TableColumn) itr.next();
 
             EXZHelper.log(LOG_DEBUG,
-                          tabCol.getColumnName() + tab + tabCol.getColumnType() + tab + tabCol.getExeclColumnName()
+                          tabCol.getColumnName() + tab + tabCol.getColumnType() + tab + tabCol.getExcelColumnName()
                           + tab + tabCol.getExcelColumnNo() + tab + tabCol.isColumnNullable() + tab
                           + tabCol.isNameMatched() + tab + tabCol.isNeeded() + tab + tabCol.isResultColumn());
         }
@@ -159,7 +159,7 @@ public class ColumnMapping implements Constants {
         while (itr.hasNext()) {
             TableColumn tabCol = (TableColumn) itr.next();
 
-            if (tabCol.getExeclColumnName().equals(columnName)) {
+            if (tabCol.getExcelColumnName().equals(columnName)) {
                 tabCol.setExcelColumnNo(excelColNo);
 
                 break;

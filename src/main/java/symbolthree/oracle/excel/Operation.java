@@ -197,7 +197,7 @@ public class Operation implements Constants {
         if (objectType.equals("TABLE") || objectType.equals("VIEW")) {
             String resultCol = EXZParams.instance().getValue(RESULT_COLUMN_NAME);
 
-            col.setExeclColumnName(resultCol);
+            col.setExcelColumnName(resultCol);
             col.setResultColumn(true);
             col.setNeeded(false);
             mapping.addColumn(col);
@@ -212,7 +212,7 @@ public class Operation implements Constants {
             String key = (String) itr.next();
 
             col.setColumnName(key);
-            col.setExeclColumnName((String) customColumnMap.get(key));
+            col.setExcelColumnName((String) customColumnMap.get(key));
             col.setNameMatched(false);
             col.setNeeded(true);
             mapping.addColumn(col);
@@ -249,7 +249,11 @@ public class Operation implements Constants {
             if (columnType.equals("VARCHAR2")) {
                 tabCol.setColumnSize(rsMetaData.getColumnDisplaySize(i));
             }
-
+            
+            EXZHelper.log(LOG_DEBUG, 
+            		String.format("%30s", tabCol.getColumnName()) + "|" +
+            		String.format("%30s", tabCol.getColumnType()));
+            
             mapping.addColumn(tabCol);
         }
 
@@ -286,7 +290,8 @@ public class Operation implements Constants {
 
         while (itr2.hasNext()) {
             TableColumn tabCol     = (TableColumn) itr2.next();
-            String      columnName = tabCol.getExeclColumnName();
+            String      columnName = tabCol.getExcelColumnName();
+            String      columnDataType = tabCol.getColumnType();
             Row         row        = dataSheet.getRow(titleRowNo - 1);
             int         lastCellNo = (int) row.getLastCellNum();
 
@@ -301,6 +306,12 @@ public class Operation implements Constants {
                     tabCol.setExcelColumnNo(i);
                     EXZHelper.log(LOG_DEBUG, columnName + " matched at column " + i);
                     columnMatched = true;
+                    
+                    if (columnName != EXZParams.instance().getValue(RESULT_COLUMN_NAME)) {
+                      if (!Arrays.asList(DATATYPE_ALLOWED).contains(columnDataType)) {
+                    	throw new EXZException("Column " + columnName + " uses data type " + columnDataType +  " and it is not supported");
+                      }
+                    }
 
                     break;
                 }
@@ -371,7 +382,7 @@ public class Operation implements Constants {
           TableColumn tabCol = new TableColumn();
   
           tabCol.setColumnName("ROWID");
-          tabCol.setExeclColumnName("ROWID");
+          tabCol.setExcelColumnName("ROWID");
           tabCol.setExcelColumnNo(rowIDColNum);
           tabCol.setRowIDColumn(true);
           getColumnMapping().addColumn(tabCol);

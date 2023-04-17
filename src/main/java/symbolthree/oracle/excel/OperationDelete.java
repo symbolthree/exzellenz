@@ -276,7 +276,7 @@ public class OperationDelete extends Operation implements Constants {
         TableColumn rowID = new TableColumn();
 
         rowID.setColumnName("ROWID");
-        rowID.setExeclColumnName("ROWID");
+        rowID.setExcelColumnName("ROWID");
 
         Workbook wb            = super.getWorkbook();
         String   worksheetName = EXZParams.instance().getValue(DATA_WORKSHEET);

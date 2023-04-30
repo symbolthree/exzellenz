@@ -232,6 +232,8 @@ public class EXZELLENZ implements Runnable, Constants {
             	
                 if (!showConfirmation()) {
                 	EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.CONFIRM_CANCELLED"));
+                	// release file
+                	fis.close();
                 	return;
                 };
             }

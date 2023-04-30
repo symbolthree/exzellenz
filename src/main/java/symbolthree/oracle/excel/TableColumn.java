@@ -33,7 +33,7 @@ public class TableColumn {
     private int     columnSize;
     private String  columnType;
     private int     excelColumnNo;
-    private String  execlColumnName;
+    private String  excelColumnName;
     private boolean nameMatched;
 
     /**
@@ -95,15 +95,15 @@ public class TableColumn {
     /**
      * @param execlColumnName the execlColumnName to set
      */
-    public void setExeclColumnName(String execlColumnName) {
-        this.execlColumnName = execlColumnName;
+    public void setExcelColumnName(String excelColumnName) {
+        this.excelColumnName = excelColumnName;
     }
 
     /**
      * @return the execlColumnName
      */
-    public String getExeclColumnName() {
-        return execlColumnName;
+    public String getExcelColumnName() {
+        return excelColumnName;
     }
 
     /**

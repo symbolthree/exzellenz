@@ -77,16 +77,16 @@ public class OperationTemplate extends Operation implements Constants {
             while (itr.hasNext()) {
                 TableColumn col = (TableColumn) itr.next();
 
-                EXZHelper.log(LOG_DEBUG, "Put Title " + col.getExeclColumnName() + " to column " + col.getExcelColumnNo());
+                EXZHelper.log(LOG_DEBUG, "Put Title " + col.getExcelColumnName() + " to column " + col.getExcelColumnNo());
 
                 Cell cell = row.createCell(col.getExcelColumnNo() - 1);
 
                 cell.setCellStyle(titleStyle);
 
                 if (cell instanceof HSSFCell) {
-                    cell.setCellValue(new HSSFRichTextString(col.getExeclColumnName()));
+                    cell.setCellValue(new HSSFRichTextString(col.getExcelColumnName()));
                 } else if (cell instanceof XSSFCell) {
-                    cell.setCellValue(new XSSFRichTextString(col.getExeclColumnName()));
+                    cell.setCellValue(new XSSFRichTextString(col.getExcelColumnName()));
                 }
             }
 
@@ -230,7 +230,7 @@ public class OperationTemplate extends Operation implements Constants {
             String      resultColName = EXZParams.instance().getValue(RESULT_COLUMN_NAME);
             TableColumn resultCol     = new TableColumn();
 
-            resultCol.setExeclColumnName(resultColName);
+            resultCol.setExcelColumnName(resultColName);
             resultCol.setResultColumn(true);
             resultCol.setExcelColumnNo(1);
             super.getColumnMapping().addColumn(resultCol);

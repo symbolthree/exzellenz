@@ -133,6 +133,12 @@ public interface Constants {
 	
 	public static String       OWNER                     = "OWNER"; /* new in version 2.1 */
 
+	public static String[]     DATATYPE_ALLOWED          = new String[]{"VARCHAR2",
+			                                                            "NVARCHAR2",
+			                                                            "NUMBER", 
+			                                                            "FLOAT",
+			                                                            "DATE",
+			                                                            "NCHAR"};
 
     
 }

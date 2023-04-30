@@ -194,7 +194,17 @@ public class EXZELLENZ implements Runnable, Constants {
             // In here, the OPERATION_MODE is found. We can use the factory to create different operations.
             String opMode = EXZParams.instance().getValue(OPERATION_MODE);
 
-            EXZHelper.log(LOG_INFO, "Operation Mode = " + opMode);
+            EXZHelper.log(LOG_INFO, "Operation : " + opMode);
+            
+            String tableName  = EXZParams.instance().getValue(TABLE_NAME);
+            String owner      = EXZParams.instance().getValue(OWNER);
+            String username   = EXZParams.instance().getValue(USERNAME);
+            
+            if (owner != null && ! owner.equals("")) {
+            	EXZHelper.log(LOG_INFO, "Table : " + owner + "." + tableName);
+            } else {
+            	EXZHelper.log(LOG_INFO, "Table : " + username + "." + tableName);
+            }
             
             // if custom query is used, worksheet name must be present
             if (EXZParams.instance().getValue(CUSTOM_QUERY) != null && 
@@ -222,6 +232,8 @@ public class EXZELLENZ implements Runnable, Constants {
             	
                 if (!showConfirmation()) {
                 	EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.CONFIRM_CANCELLED"));
+                	// release file
+                	fis.close();
                 	return;
                 };
             }

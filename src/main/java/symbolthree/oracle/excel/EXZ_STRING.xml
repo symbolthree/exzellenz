@@ -55,9 +55,9 @@
    <entry key="LOG_DEBUG">Debug</entry>
    <entry key="LOG_INTERVAL">Log Interval</entry>
    <entry key="HELP">Help</entry>
-   <entry key="HELP_LINK">https://github.com/symbolthree/exzellenz/blob/master/doc/INDEX.md</entry>    
-   <entry key="ABOUT">About</entry>   
-   <entry key="ABOUT_LINK">http://symbolthree.com/home/products/exzellenz/</entry>   
+   <entry key="HELP_LINK">https://github.com/symbolthree/exzellenz/blob/master/doc/INDEX.md</entry>
+   <entry key="ABOUT_LINK">https://symbolthree.github.io/EXZELLENZ.html</entry>
+   <entry key="ABOUT">About</entry>
    <entry key="CLOSE">Close</entry>
    <entry key="EXIT">Exit</entry>
   </locale>
@@ -73,7 +73,7 @@
    <entry key="LOG_INTERVAL">區間</entry>
    <entry key="HELP">幫助</entry>
    <entry key="HELP_LINK">https://github.com/symbolthree/exzellenz/blob/master/doc/INDEX.md</entry>
-   <entry key="ABOUT_LINK">http://symbolthree.com/home/products/exzellenz/</entry>
+   <entry key="ABOUT_LINK">https://symbolthree.github.io/EXZELLENZ.html</entry>
    <entry key="ABOUT">關於</entry>
    <entry key="CLOSE">關閉</entry>   
    <entry key="EXIT">離開</entry>
@@ -83,7 +83,7 @@
   <locale language="en">
    <entry key="MULTI_FILE">Please drop one file only.</entry>
    <entry key="INVALID_EXT">{0} is not a valid Excel file or this extension is not supported.</entry>
-   <entry key="VERSION">Please use Excel Template File for version {0}</entry>
+   <entry key="VERSION">Please use Excel Template File version {0} or higher</entry>
    <entry key="DATABASE_PARAMS">Please make sure all required database parameters are valid.</entry>
    <entry key="PARAMETER">Please define {0} parameter.</entry>
    <entry key="SHEET_NOTFOUND">Worksheet {0} is not present.</entry>
@@ -97,7 +97,8 @@
    <entry key="TABLE_NAME">Table {0} does not exist or is not a table or view.</entry>
    <entry key="OPERATION_MODE">{0} operation is not allowed on database view {1}.</entry>
    <entry key="CUSTOM_QUERY_SHEET">Data worksheet name must be specified if CUSTOM_QUERY is used</entry>
-   <entry key="CUSTOM_QUERY_CONFLICT">Cannot use CUSTOM_QUERY and TABLE_NAME at the same time</entry>   
+   <entry key="CUSTOM_QUERY_CONFLICT">Cannot use CUSTOM_QUERY and TABLE_NAME at the same time</entry>
+   <entry key="TABLE_NOT_FOUND">Table name or custom query cannot be empty</entry>
   </locale>
   <locale language="zh" country="TW">
    <entry key="MULTI_FILE">不可多於一個檔案</entry>
@@ -116,7 +117,8 @@
    <entry key="TABLE_NAME">{0}不存在或不是一個table或view</entry>
    <entry key="OPERATION_MODE">View {1} 不可作出  {0} 的處理</entry>
    <entry key="CUSTOM_QUERY_SHEET">使用CUSTOM_QUERY時必須 表明DATA_WORKSHEET</entry>
-   <entry key="CUSTOM_QUERY_CONFLICT">CUSTOM_QUERY及TABLE_NAME不能同時使用</entry>   
+   <entry key="CUSTOM_QUERY_CONFLICT">CUSTOM_QUERY及TABLE_NAME不能同時使用</entry>
+   <entry key="TABLE_NOT_FOUND">CUSTOM_QUERY或TABLE_NAME不可同時空白</entry>
   </locale>
  </message>
 </messages>

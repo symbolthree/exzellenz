@@ -88,8 +88,6 @@ public class EXZELLENZ implements Runnable, Constants {
                 excelFormat = "XLS";
             } else if (ext.equalsIgnoreCase("xlsx")) {
                 excelFormat = "XLSX";
-            } else if (ext.equalsIgnoreCase("xlsb")) {
-                excelFormat = "XLSB";
             } else {
                 throw new EXZException("Invalid file extension (" + ext + ")");
             }
@@ -152,6 +150,16 @@ public class EXZELLENZ implements Runnable, Constants {
                         EXZHelper.log(LOG_DEBUG, colNo + "-" + param + ":" + value);
                     }
 
+                    // password decryption
+                    if (param.endsWith(PASSWORD)) {
+                    	value = Security.getInstance().decryptPwd(value);
+                    	
+                    	if (! Security.getInstance().isEncrypted(value)) {
+                    		String newValue = Security.getInstance().encryptPwd(value);
+                    		EXZHelper.writreString(wb, exzSheet, colNo, 3, newValue);
+                    	}
+                    }
+                    
                     EXZParams.instance().setValue(param, value);
                 }
 
@@ -180,6 +188,8 @@ public class EXZELLENZ implements Runnable, Constants {
             String templateVer = EXZParams.instance().getValue(VERSION);
             int templateMajorVer = Integer.parseInt(templateVer.split("\\.")[0]);
             int templateMinorVer = Integer.parseInt(templateVer.split("\\.")[1]);
+            
+            EXZHelper.log(LOG_DEBUG, "Excel template version =  " +  templateMajorVer + "." + templateMinorVer);
             
             if (templateMajorVer < LOWEST_MAJOR_VERSION_ALLOWED) {
                 EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("ERR.VERSION", LOWEST_MAJOR_VERSION_ALLOWED + "." + LOWEST_MINOR_VERSION_ALLOWED));
@@ -220,6 +230,13 @@ public class EXZELLENZ implements Runnable, Constants {
                 throw new EXZException();
             }            
 
+            // CUSTOM_QUERY and TABLE_NAME can not be empty
+            if (EXZParams.instance().getValue(CUSTOM_QUERY) == null && 
+            	EXZParams.instance().getValue(TABLE_NAME)   == null) {
+                EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("ERR.TABLE_NOT_FOUND"));
+                throw new EXZException();
+            }    
+            
             // prompt for confirmation
             if (EXZParams.instance().getValue(CONFIRM_OPERATION) != null &&
            		EXZParams.instance().getValue(CONFIRM_OPERATION).equals("Y")) {
@@ -257,14 +274,12 @@ public class EXZELLENZ implements Runnable, Constants {
                 }
                 
                 DBConnection.getInstance().releaseConnection();
-                DBConnection.getInstance().clear();
                 EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.PROCESS_DONE"));
             }
         } catch (Exception e) {
             try {
               if (fis != null) fis.close();
               DBConnection.getInstance().releaseConnection();
-              DBConnection.getInstance().clear();
             } catch (IOException ioe) {
               // do nothing
             } catch (SQLException ioe) {

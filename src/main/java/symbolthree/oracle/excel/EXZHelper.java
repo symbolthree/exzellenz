@@ -36,9 +36,8 @@ import java.text.*;
 import java.util.*;
 
 public class EXZHelper implements Constants {
+	
     final static private SimpleDateFormat timeFormat = new SimpleDateFormat("yyMMdd.HHmmss");
-    public static String                  MAJOR_VER;
-    public static String                  MINOR_VER;
     private static FileWriter             logWriter;
 
     public static String readString(Workbook wb, Sheet sheet, int rowNo, int colNo) {
@@ -157,6 +156,34 @@ public class EXZHelper implements Constants {
         return evaluator.evaluate(cell).getNumberValue();
     }
 
+    public static void writreString(Workbook wb, Sheet sheet, int rowNo, int colNo, String str) {
+        try {
+            if (wb instanceof HSSFWorkbook) {
+                HSSFRow row = ((HSSFSheet) sheet).getRow(rowNo - 1);
+
+                if (row != null) {
+                    HSSFCell cell = row.getCell(colNo - 1);
+
+                    if (cell != null) {
+                    	cell.setCellValue(str);
+                    }
+                }
+            } else if (wb instanceof XSSFWorkbook) {
+                XSSFRow row = ((XSSFSheet) sheet).getRow(rowNo - 1);
+
+                if (row != null) {
+                    XSSFCell cell = row.getCell(colNo - 1);
+                    
+                    if (cell != null) {
+                    	cell.setCellValue(str);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            EXZHelper.log(LOG_ERROR, "Error in writing cell " + EXZHelper.number2Letter(colNo) + ":" + rowNo);
+        }
+    }    
+    
     public static void setCellStyle(HSSFWorkbook wb, HSSFSheet sheet, int rowNo, int colNo, short bgColor,
                                     short fontColor, String cellText) {
         HSSFRow row = sheet.getRow(rowNo - 1);
@@ -456,19 +483,8 @@ public class EXZHelper implements Constants {
     // loaded the program version and build no. as a system variable EXZELLENZ_VERSION
     // 0 = all; 1=major; 2=minor
     public static void getVersion() {
-        //InputStream is        = EXZHelper.class.getResourceAsStream("/build.properties");
-    	File f = new File(EXZ_APPLICATION_DIR, "build.properties");
-        Properties buildProp = new Properties(); 
-        
-        try {
-            buildProp.load(new FileInputStream(f));
-        } catch (Exception e) {
-
-            // do nothing
-        }
-
-        MAJOR_VER = buildProp.getProperty("build.version");
-        MINOR_VER = buildProp.getProperty("build.number");
+        String MAJOR_VER = "2.3";
+        String MINOR_VER = "32";
 
         String ver = MAJOR_VER + " build " + MINOR_VER;
 
@@ -477,23 +493,15 @@ public class EXZHelper implements Constants {
     }
 
 	public static String getVersionWithTimestamp() {
-        //InputStream is        = EXZHelper.class.getResourceAsStream("/build.properties");
-        Properties  buildProp = new Properties();		
-        try {		
-        InputStream is        = new FileInputStream(new File(EXZ_APPLICATION_DIR, "build.properties"));		
-            buildProp.load(is);
-        } catch (Exception e) {
-            // do nothing
-        }
-        String MAJOR_VER = buildProp.getProperty("build.version");
-        String MINOR_VER = buildProp.getProperty("build.number");
-        String TIMSETAMP = buildProp.getProperty("build.time").substring(0,10);
+        String MAJOR_VER = "2.3";
+        String MINOR_VER = "32";
+        String TIMSETAMP = "2025/07/11 00:43".substring(0,10);
         String ver = "Version " + MAJOR_VER + " build " + MINOR_VER + " (" + TIMSETAMP + ")";
         return ver;
 	}    
     
 	public static String getAuthorLine() {
-		return "Copyright(c) 2010-2022 Christopher.Ho@symbolthree.com";
+		return "Copyright(c) 2025 Christopher.Ho@symbolthree.com";
 	}
 	
     public static String getExtension(File f) {

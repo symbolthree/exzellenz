@@ -45,8 +45,7 @@ Start EXZELLENZ and drag-and-drop file `emp_view.xlsx` to the program window.  W
 
 When `emp_view(2).xlsx` is still open, go to EXZELLENZ worksheet and change the `OPERATION_MODE` to `DOWNLOAD`.
 
-Remove all columns except EMP_ID, EMPLOYEE, DEPT, JOB, MGR, REGION.  Change
-
+Remove all columns except EMP_ID, EMPLOYEE, DEPT, JOB, MGR, REGION.
 Add the custom column names mapping in EXZELLENZ worksheet as follows:
 
 <img src="../pic/image30.png"/>

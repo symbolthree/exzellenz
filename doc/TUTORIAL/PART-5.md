@@ -14,7 +14,7 @@ Add value for `NEW_FILE_NAME` parameter so that the output Excel file has timest
 
 <img src="../pic/image25.png"/>
 
-Start EXZELLENZ, Drag-and-drop the file hr(4).xlsx to the program window.  When the process has done, you should see `Rows processed successfully: 1` in the program window.
+Start EXZELLENZ, Drag-and-drop the file `hr(4).xlsx` to the program window.  When the process has done, you should see `Rows processed successfully: 1` in the program window.
 
 <img src="../pic/image26.png"/>
 

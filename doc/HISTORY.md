@@ -1,6 +1,12 @@
 <span style="font-size:36px;">Version History</span><span style="padding-left: 300px;text-align:right;font-size:14px"><a href="INDEX.md">Index</a></span>
 
 ---
+## Changes in v. 2.3
+- Excel template version 2.3
+- Oracle JDBC driver 21.18
+- Apache POI version 5.4.1
+- Encrypt password if it is in plain text
+- Remove EBS data connection mode
 
 ## Changes in v. 2.0
 - Excel template version 2.0

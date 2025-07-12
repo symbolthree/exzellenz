@@ -40,21 +40,36 @@ public class EXZProp implements Constants {
 
         try {
             
-        	//File f = new File(EXZ_APPLICATION_DIR);
-        	//if (! f.exists()) FileUtils.forceMkdir(f);
-
-        	File propUser     = new File(EXZ_APPLICATION_DIR, EXZ_RESOURCE_BUNDLE);
-        	//if (! propUser.exists()) {
-        	//  File propTemplate = new File(System.getProperty("user.dir"), RESOURCE_BUNDLE);
-        	//  FileUtils.copyFile(propTemplate, propUser);
-        	//}
+        	File propFile = new File(EXZ_APPLICATION_DIR, EXZ_RESOURCE_BUNDLE);
         	
-            FileInputStream is = new FileInputStream(propUser);
-            prop.load(is);
-            is.close();
+        	if (! propFile.exists()) {
+        		
+        		InputStream inputStream = EXZProp.class.getClassLoader().getResourceAsStream("symbolthree/oracle/excel/" + EXZ_RESOURCE_BUNDLE);
+        		File outputFile = new File(EXZ_APPLICATION_DIR, EXZ_RESOURCE_BUNDLE);
+        	    OutputStream outputStream = new FileOutputStream(outputFile);
+        	    byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+                outputStream.close();
+                FileInputStream is = new FileInputStream(outputFile);
+                prop.load(is);
+                is.close();
+        	
+        	} else {
+              FileInputStream is = new FileInputStream(propFile);
+              prop.load(is);
+              is.close();
+        	}
             
         } catch (Exception e) {
-            e.printStackTrace();
+           System.out.println(EXZ_RESOURCE_BUNDLE  + " not found. Program exit.");
+           try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
         }
     }
 

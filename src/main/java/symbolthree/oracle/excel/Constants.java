@@ -26,24 +26,17 @@ package symbolthree.oracle.excel;
 
 public interface Constants {
   
-    public static String       APPS_RUNAS_MODE           = "APPS_RUNAS_MODE";
-    public static String       APPS_RUNAS_PASSWORD       = "APPS_RUNAS_PASSWORD";
-    public static String       APPS_RUNAS_RESPONSIBILITY = "APPS_RUNAS_RESPONSIBILITY";
-    public static String       APPS_RUNAS_USER           = "APPS_RUNAS_USER";
     public static String       CELL_FORMAT               = "CELL_FORMAT";
     public static String       COLUMN_MAPPING            = "COLUMN_MAPPING";
     public static String       COLUMN_TITLE_FORMAT       = "COLUMN_TITLE_FORMAT";
     public static String       COLUMN_TITLE_ROW          = "COLUMN_TITLE_ROW";
     public static String       COMMIT_AND_EXIT           = "COMMIT_AND_EXIT";
     public static String       CONNECTION_DIRECT         = "DIRECT";
-    public static String       CONNECTION_EBS            = "APPLICATIONS";
-    public static String       CONNECTION_MODE           = "CONNECTION_MODE";
     public static String       CONTINUE_ON_ERROR         = "CONTINUE_ON_ERROR";
     public static String       CUSTOM_QUERY              = "CUSTOM_QUERY";
     public static String       DATA_WORKSHEET            = "DATA_WORKSHEET";
     public static String       DATE_FORMAT               = "DATE_FORMAT";
     public static String       DATE_MASK                 = "DATE_MASK";
-    public static String       DBC_FILE                  = "DBC_FILE";
     public static String       ERROR_HANDLING            = "ERROR_HANDLING";
     public static String       EXZELLENZ_VERSION         = "EXZELLENZ_VERSION";
     public static String       EXZELLENZ_FULL_VERSION    = "EXZELLENZ_FULL_VERSION";
@@ -52,7 +45,6 @@ public interface Constants {
     public static String       EXZ_LOG_OUTPUT            = "EXZ_LOG_OUTPUT";
     
     public static String       EXZ_LOG_INTERVAL          = "EXZ_LOG_INTERVAL";
-    //public static String       EXZ_APPLICATION_DIR       = System.getProperty("user.home") + File.separator + "symbolthree" + File.separator + "exzellenz";
     public static String       EXZ_APPLICATION_DIR       = System.getProperty("user.dir");
     public static String       IGONRE_NOT_NULL_COLUMN    = "IGONRE_NOT_NULL_COLUMN";
     
@@ -111,7 +103,11 @@ public interface Constants {
     public static String       SAVE_NEW_FILE             = "SAVE_NEW_FILE";
     public static String       RUNMODE_GUI               = "GUI";
     public static String       RUNMODE_CONSOLE           = "CONSOLE";
-/*
+    
+    public static int          ENCRYPTED_PASSWORD_LENGTH = 50;  // v2.2 password encryption
+    public static String       PASSWORD_SEED             = "SYMBOLTHREE";   
+    
+/* 
  *  As of version 1.8, SHOW_ROWCOUNT is a configurable parameter
     public static int          SHOWING_ROWCOUNT          = 100;
  *
@@ -119,8 +115,8 @@ public interface Constants {
     public static String       WINDOW_WIDTH              = "WINDOW_WIDTH";
     public static String       WINDOW_HEIGHT             = "WINDOW_HEIGHT";
     
-    public static double       LOWEST_MAJOR_VERSION_ALLOWED  = 1;
-    public static double       LOWEST_MINOR_VERSION_ALLOWED  = 11;
+    public static int          LOWEST_MAJOR_VERSION_ALLOWED  = 2;
+    public static int          LOWEST_MINOR_VERSION_ALLOWED  = 3;
     public static int          SXSSF_WINDOW_SIZE         = 1000;
     
     public static String       CONFIRM_OPERATION         = "CONFIRM_OPERATION";  /* new in version 1.10 */
@@ -138,8 +134,7 @@ public interface Constants {
 			                                                            "NUMBER", 
 			                                                            "FLOAT",
 			                                                            "DATE",
-			                                                            "NCHAR"};
-
-    
+			                                                            "NCHAR",
+			                                                            "ROWID"};
 }
 

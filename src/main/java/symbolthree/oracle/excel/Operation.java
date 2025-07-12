@@ -334,11 +334,12 @@ public class Operation implements Constants {
                 }
             }
         }
-
     }
 
-    protected void addROWIDCol() throws EXZException {
+      protected void addROWIDCol() throws EXZException {
         // add ROWID column if not present for TABLE
+    	  
+    	EXZHelper.log(LOG_DEBUG, "Add ROW ID Column");  
         String objectType    = getObjectType();
         
         if (objectType.equals("TABLE")) {
@@ -385,6 +386,7 @@ public class Operation implements Constants {
           tabCol.setExcelColumnName("ROWID");
           tabCol.setExcelColumnNo(rowIDColNum);
           tabCol.setRowIDColumn(true);
+          tabCol.setColumnType("ROWID");
           getColumnMapping().addColumn(tabCol);
           
           EXZHelper.log(LOG_INFO, "ROWID on column " + rowIDColNum);
@@ -394,67 +396,22 @@ public class Operation implements Constants {
     
     
     public boolean checkDBConnection() {
-        boolean useRunAsMode;
+        EXZHelper.log(LOG_DEBUG, "Using JDBC URL:" + EXZParams.instance().getJDBUrl());
 
-        if (EXZParams.instance().getValue(APPS_RUNAS_MODE).equals(USE_RUNAS_MODE)) {
-            EXZHelper.log(LOG_DEBUG, "Use RunAs User mode");
-            useRunAsMode = true;
-        } else {
-            useRunAsMode = false;
-        }
+        try {
+            EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.DB_CONNECTING"));
+            connection = DBConnection.getInstance(
+            		     EXZParams.instance().getJDBUrl(),
+                         EXZParams.instance().getValue(USERNAME),
+                         EXZParams.instance().getValue(PASSWORD)
+                        ).getConnection();
 
-        if (EXZParams.instance().getValue(CONNECTION_MODE).equals(CONNECTION_DIRECT)) {
-            EXZHelper.log(LOG_DEBUG, "Using JDBC URL:" + EXZParams.instance().getJDBUrl());
+            EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.DB_CONNECT_SUCCESS"));
 
-            try {
-                EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.DB_CONNECTING"));
-                connection = DBConnection.getInstance(EXZParams.instance().getJDBUrl(),
-                             EXZParams.instance().getValue(USERNAME), EXZParams.instance().getValue(PASSWORD),
-                            useRunAsMode).getConnection();
-
-                if (EXZParams.instance().getValue(APPS_RUNAS_MODE).equals(USE_RUNAS_MODE)) {}
-
-                EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.DB_CONNECT_SUCCESS"));
-
-                return true;
-                
-            } catch (EXZException sqle) {
-                EXZHelper.logError(sqle);
-
-                return false;
-            }
-        
-        } else if (EXZParams.instance().getValue(CONNECTION_MODE).equals(CONNECTION_EBS)) {
-            String dbcFileStr = EXZParams.instance().getValue(DBC_FILE);
-            File   dbcFile;
-
-            if (!EXZHelper.isEmpty(dbcFileStr)) {
-                dbcFile = new File(dbcFileStr);
-
-                if (!dbcFile.exists() ||!dbcFile.isFile()) {
-                    EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("MSG.ERR_INVALID_DBC", dbcFile.getAbsolutePath()));
-
-                    return false;
-                }
-        
-            } else {
-                EXZHelper.log(LOG_ERROR, EXZI18N.inst().get("MSG.ERR_INVALID_DBC", dbcFileStr));
-
-                return false;
-            }
-
-            try {
-                 connection = DBConnection.getInstance(EXZParams.instance().getValue(USERNAME),
-                              EXZParams.instance().getValue(PASSWORD), dbcFile, null, useRunAsMode).getConnection();
-                EXZHelper.log(LOG_INFO, EXZI18N.inst().get("MSG.DB_CONNECT_SUCCESS"));
-
-                return true;
-            } catch (EXZException sqle) {
-                EXZHelper.logError(sqle);
-
-                return false;
-            }
-        } else {
+            return true;
+            
+        } catch (EXZException sqle) {
+            EXZHelper.logError(sqle);
             return false;
         }
     }

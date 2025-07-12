@@ -1,6 +1,6 @@
 EXZELLENZ 2.1
 
-Copyright (C) 2022 Christopher.Ho@symbolthree.com
+Copyright (C) 2025 Christopher.Ho@symbolthree.com
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -17,13 +17,21 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 =========================
-README for EXZELLENZ 2.1 
+README for EXZELLENZ 2.3
 =========================
 - Unzip the archive to any directory
 - Make sure you are using JRE 8 or higher
 - Run EXZ.exe / EXZ.bat / EXZ.sh to start the GUI version
 - Run the EXZELLENZ.bat / EXZELLENZ.sh for the console-based version. It takes one argument 
   (Excel file in full path).
+
+=========================
+Changes in v. 2.3
+=========================
+- Excel template version 2.0 to 2.3
+- Remove EBS RunAsMode feature
+- Encrypt password stored in Excel 
+- Update all dependencies to latest versions
 
 =========================
 Changes in v. 2.1

@@ -369,6 +369,7 @@ public class EXZ implements Constants, ActionListener {
       }
     }
 
+    // add text shown on console  
     public void addText(final String str) {
       SwingUtilities.invokeLater(new Runnable() {
           public void run() {

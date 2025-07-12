@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="EXZELLENZ" default="buildEXE" basedir=".">
+<project name="EXZELLENZ" default="cleanup" basedir=".">
   <tstamp/>
-  <property name="launch4j.dir" location="D:\WORK\launch4j-3.14" />
+  <property name="launch4j.dir" location="D:\WORK\launch4j-3.50" />
   <taskdef name="launch4j"
            classname="net.sf.launch4j.ant.Launch4jTask"
            classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar"
   />
-  <property name="major.version" value="2.2" />
-
+  <property name="major.version" value="2.3" />
+  <property name="java.source.version" value="src\main\java\symbolthree\oracle\excel\EXZHelper.java"/>
+  <property name="java.source.version.backup" value="src\main\java\symbolthree\oracle\excel\EXZHelper.backup"/>
+  
   <target name="init">
     <propertyfile file="build.properties">
       <entry key="build.version" type="string" value="${major.version}"/>
@@ -23,10 +25,26 @@
     <delete dir="${releaseDir}" />
   </target>
 
-  <target name="build" depends="init">
+  <target name="stamp-build" depends="init">
+    <copy file="${java.source.version}" 
+	      tofile="${java.source.version.backup}"/>
+    <replace file="${java.source.version}"  token="@BUILD.VERSION@" value="${build.version}"/>
+    <replace file="${java.source.version}"  token="@BUILD.NUMBER@" value="${build.number}"/>	
+	<replace file="${java.source.version}"  token="@BUILD.TIME@" value="${build.time}"/>
+  </target>
+
+  <target name="maven" depends="stamp-build">
+    <exec dir="." executable="cmd">
+        <arg line="/c mvn clean install" />
+    </exec>
+	<delete file="${java.source.version}"/>
+	<move file="${java.source.version.backup}" tofile="${java.source.version}"/>
+  </target>
+
+  <target name="build" depends="maven">
     <copy file="target\exzellenz-${major.version}.jar" todir="${releaseDir}"/>
 
-    <copy file="build.properties" todir="${releaseDir}"/>
+    <!-- <copy file="build.properties" todir="${releaseDir}"/> -->
 
 	  <fixcrlf file="template\EXZELLENZ.sh" eol="lf" eof="remove" destDir="${releaseDir}" />
 	  <fixcrlf file="template\EXZ.sh"       eol="lf" eof="remove" destDir="${releaseDir}" />
@@ -48,7 +66,7 @@
 	  <copy file="template\LICENSE.txt" toDir="${releaseDir}"/>
 	  <copy file="template\LICENSE_3RD_PARTY.txt" toDir="${releaseDir}"/>
 
-	  <copy file="template\EXZ_template_${template.version}.xls" toDir="${releaseDir}"/>
+	  <!-- <copy file="template\EXZ_template_${template.version}.xls" toDir="${releaseDir}"/> -->
 	  <copy file="template\EXZ_template_${template.version}.xlsx" toDir="${releaseDir}"/>
 	  <!-- <copy file="doc\EXZELLENZ.chm" toDir="${releaseDir}\doc" /> -->
   </target>
@@ -63,12 +81,8 @@
   	<replace file="launch4j.xml" token="@productVersion@"    value="${build.version}.${build.number}.0"/>
   	<replace file="launch4j.xml" token="@txtProductVersion@" value="${build.version} build ${build.number}"/>
 
-    <launch4j configFile="launch4j.xml"
-              fileVersion="${build.version}.${build.number}.0"
-              txtFileVersion="${build.version} build ${build.number}"
-              productVersion="${build.version}.${build.number}.0"
-              txtProductVersion="${build.version} build ${build.number}"
-    />
+    <launch4j configFile="launch4j.xml" />
+	
     <copy file="EXZ.exe" toDir="${releaseDir}"/>
   </target>
 

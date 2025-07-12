@@ -2,7 +2,7 @@
 
 ---
 
-**Copyright (c) 2010-17 Christopher.Ho@symbolthree.com
+**Copyright (c) 2010-25 christopher.ho@symbolthree.com
 All rights reserved.**
  
 EXZELLENZ is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
  
 ### License for Oracle-related files
-`fndext.jar, ojdbc6.jar`
+`fndext.jar, ojdbc8.jar`
 ~~~
 You/Your company must obtain a valid license from Oracle to use these files. The aforementioned files is pre-packaged in this software and is for your convenience to use this program. These files should be deleted immediately if you/your company does not have the right granted from Oracle to use these files. The writer of EXZELLENZ shall not bear any responsibility for the copyright violation of the aforementioned files.
 ~~~
@@ -25,11 +25,11 @@ You/Your company must obtain a valid license from Oracle to use these files. The
 ### License for third-party libraries
 
 - Apache Common IO
-    - commons-io-2.4.jar
+    - commons-io-2.19.jar
 - Apache Common i18n 
     - commons-i18n-20050525.jar
 - Apache POI 
-    - poi-3.15.jar, poi-ooxml-3.15.jar, poi-ooxml-schemas-3.15.jar, xmlbeans-2.6.0.jar, stax-api-1.0.1.jar,commons-collections4-4.1.jar
+    - poi-5.4.1.jar, poi-ooxml-5.4.1.jar
 
 ~~~
 Apache License
@@ -235,7 +235,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ~~~
 
-## License for Dom4J (dom4j-1.6.1.jar)
+## License for Dom4J (dom4j-2.0.6.1.jar)
 ~~~
 Copyright 2001-2005 (C) MetaStuff, Ltd. All Rights Reserved.
 Redistribution and use of this software and associated documentation
@@ -275,36 +275,6 @@ STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 OF THE POSSIBILITY OF SUCH DAMAGE.
  ~~~
-
-### License for Inno Setup / http://www.jrsoftware.org
-
-~~~
-Except where otherwise noted, all of the documentation and software included
-in the Inno Setup package is copyrighted by Jordan Russell.
-Copyright (C) 1997-2010 Jordan Russell. All rights reserved.
-Portions Copyright (C) 2000-2010 Martijn Laan. All rights reserved.
-This software is provided "as-is," without any express or implied warranty.
-In no event shall the author be held liable for any damages arising from the
-use of this software.
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter and redistribute it,
-provided that the following conditions are met:
-1. All redistributions of source code files must retain all copyright
-notices that are currently in place, and this list of conditions without
-modification.
-2. All redistributions in binary form must retain all occurrences of the
-above copyright notice and web site addresses that are currently in
-place (for example, in the About boxes).
-3. The origin of this software must not be misrepresented; you must not
-claim that you wrote the original software. If you use this software to
-distribute a product, an acknowledgment in the product documentation
-would be appreciated but is not required.
-4. Modified versions in source or binary form must be plainly marked as
-such, and must not be misrepresented as being the original software.
-Jordan Russell
-jr-2010 AT jrsoftware.org
-http://www.jrsoftware.org/
-~~~
 
 ### License for Launch4j http://launch4j.sourceforge.net/
 ~~~
